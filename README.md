@@ -29,44 +29,40 @@
 11. Project Timeline and Milestones
 12. Appendices
 
-## 1. Introduction
+## Introduction
 
-### 1.1 Purpose
+### Objectif du projet
 
-Ce document décrit la conception technique du jeu *Frog's*, un jeu de simulation mobile basé sur Unity. Il définit l'architecture, les modules et la stratégie de développement basée sur le Test-Driven Development (TDD).
+L’objectif principal de ce projet est de proposer une expérience de gestion relaxante où le joueur construit et développe un village de grenouilles. Chaque bâtiment a une fonction spécifique et permet d’optimiser la production de ressources. Le joueur est amené à collecter ces ressources afin d’améliorer les infrastructures existantes et attirer davantage de grenouilles.
 
-### 1.2 Scope
+L’économie du jeu repose sur une seule ressource, **l’argent**, qui peut être obtenue passivement via les bâtiments ou activement via des mécaniques de monétisation telles que les **publicités et les achats intégrés**.
 
-**Objectif:** Développer un jeu de gestion de village de grenouilles, où les joueurs construisent des bâtiments et collectent des ressources.\
-**Application:** Mobile (iOS, Android)
+### Choix technologique : Pourquoi Unity ?
 
-### 1.3 Justification du choix technologique
+Le jeu est développé sous **Unity** pour plusieurs raisons :
 
-**Pourquoi Unity plutôt qu'Unreal Engine ?**
+| Critères                        | Unity | Unreal Engine |
+|---------------------------------|-------|--------------|
+| **Performance mobile**         | ✅ Optimisé pour mobile | ❌ Plus gourmand en ressources |
+| **Simplicité et rapidité**     | ✅ Facile d’accès et prototypage rapide | ❌ Courbe d’apprentissage plus complexe |
+| **Écosystème et compatibilité** | ✅ Unity Ads, Firebase, support iOS/Android | ❌ Moins de support pour la monétisation mobile |
+| **Poids et exigences**         | ✅ Léger et optimisé | ❌ Plus lourd pour les appareils mobiles |
+| **Graphismes et rendu**        | ✅ Suffisant pour le style visé | ✅ Plus avancé pour le photoréalisme |
+| **Coût d’utilisation**         | ✅ Gratuit jusqu'à un seuil de revenus | ❌ Royalties appliquées après 1M$ de revenus |
 
-| Critères                                  | Unity                                                     | Unreal Engine                                      |
-| ----------------------------------------- | --------------------------------------------------------- | -------------------------------------------------- |
-| **Performance mobile**                    | Excellente optimisation pour mobile                       | Plus orienté hautes performances, lourd sur mobile |
-| **Simplicité et rapidité de prototypage** | Interface intuitive, prise en main rapide                 | Courbe d’apprentissage plus complexe               |
-| **Écosystème et compatibilité**           | Unity Ads, Firebase, Addressables, support iOS et Android | Moins de support natif pour la monétisation mobile |
-| **Poids et exigences techniques**         | Léger et adapté aux appareils mobiles                     | Moteur plus gourmand en ressources                 |
-| **Graphismes et rendu**                   | Moins avancé qu’Unreal mais suffisant pour le style visé  | Rendu photoréaliste avancé                         |
-| **Coût d’utilisation**                    | Gratuit jusqu’à un certain seuil de revenus               | Royalties après 1M\$ de revenus                    |
+**Conclusion** : Unity est le choix idéal pour *Frog's*, car il offre une excellente **optimisation mobile**, une **monétisation simplifiée** et une **interface plus accessible** pour un développement rapide et efficace.
 
-**Conclusion** : Unity est mieux adapté au projet *Frog’s* en raison de sa légèreté, de son optimisation mobile et de sa compatibilité avec les outils nécessaires à la monétisation et à l’optimisation des ressources.
+---
 
-### 1.4 Definitions, Acronyms, and Abbreviations
+### 📌 Informations complémentaires
+- **Plateformes ciblées** : iOS & Android
+- **Langage utilisé** : C# avec Unity
+- **Modèle économique** : Freemium (achats intégrés et publicités)
+- **Sauvegarde des données** : Locale & Cloud (via Firebase)
 
-- **TDD:** Test-Driven Development
-- **API:** Application Programming Interface
-- **FPS:** Frames Per Second
-- **UI:** User Interface
+---
 
-### 1.5 References
-
-- Unity Documentation
-- C# Scripting API
-- Mobile Performance Optimization Guides
+Ce projet est en cours de développement et vise à offrir une **expérience de gestion immersive et relaxante** avec un gameplay accessible et une direction artistique soignée. 🚀🐸
 
 ## 2. System Overview
 
