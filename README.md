@@ -218,17 +218,62 @@ Le développement du jeu suit une approche **Test-Driven Development (TDD)** afi
 Grâce à cette approche rigoureuse, *Frog’s* assure **une expérience de jeu stable, optimisée et sans bugs majeurs** avant chaque déploiement ! 🚀🐸
 
 
-## 6. Interface Design
+## 6. Conception de l’Interface et Déploiement  
 
-### 6.1 Internal Interfaces
+### 6.1 Interfaces Internes  
 
-- **GrenouilleManager** <-> **BuildingManager** : Attribution des métiers.
-- **UIManager** <-> **EconomyManager** : Affichage des ressources.
+Le jeu repose sur **des interfaces bien définies** permettant une communication fluide entre les différents modules.  
 
-### 6.2 External APIs and File Formats
+- 🔄 **GrenouilleManager ↔ BuildingManager** :  
+  - Gère l’**attribution des métiers** des grenouilles en fonction des bâtiments disponibles.  
+  - Assure une **mise à jour dynamique** des grenouilles lorsqu’un bâtiment est construit ou amélioré.  
 
-- **Firebase** (optionnel) pour la sauvegarde cloud.
-- **Unity Ads & IAP** pour la monétisation.
+- 📊 **UIManager ↔ EconomyManager** :  
+  - Affiche en temps réel les **ressources collectées** et disponibles.  
+  - Met à jour les **éléments de l’interface utilisateur** en fonction des actions du joueur (gain d’argent, construction de bâtiments, etc.).  
+
+---
+
+### 6.2 APIs Externes et Formats de Fichiers  
+
+Pour assurer des fonctionnalités avancées et une **meilleure gestion des données**, plusieurs services externes peuvent être intégrés :  
+
+- ☁ **Firebase (optionnel)** :  
+  - Utilisé pour la **sauvegarde cloud** et la **synchronisation des données** entre appareils.  
+
+- 💰 **Unity Ads & IAP** :  
+  - Permet la **monétisation** via des **publicités et des achats intégrés**.  
+  - Gestion simplifiée des transactions avec les plateformes iOS et Android.  
+
+---
+
+## 6.3 Déploiement et Maintenance  
+
+Le jeu sera **disponible sur iOS et Android**, avec des mises à jour régulières pour **maintenir l’engagement des joueurs** et assurer la **stabilité du système**.  
+
+### 📌 Cycle de Déploiement Structuré  
+
+1. **Développement et Tests Internes** 🛠  
+   - Implémentation de nouvelles fonctionnalités.  
+   - Corrections de bugs avant la mise en production.  
+
+2. **Phase Bêta** 🔄  
+   - Tests réalisés par un échantillon d’utilisateurs.  
+   - Détection et correction des **problèmes majeurs** avant le déploiement global.  
+
+3. **Déploiement Progressif** 🚀  
+   - Lancement contrôlé par vagues pour éviter des **problèmes critiques** à grande échelle.  
+
+---
+
+### 6.4 Suivi et Améliorations  
+
+✔ **Outils d’analyse intégrés** pour surveiller la **performance du jeu** et identifier les problèmes techniques.  
+✔ **Mise en place d’un support utilisateur** pour répondre aux **retours des joueurs** et proposer des améliorations continues.  
+✔ **Versioning sous Git** pour une gestion efficace des mises à jour et des différentes branches de développement.  
+
+Grâce à cette approche, *Frog’s* garantit une **expérience fluide et bien maintenue**, avec un cycle de mises à jour optimisé pour éviter les interruptions et améliorer continuellement le jeu ! 🐸🚀
+
 
 ## 7. Performance and Optimization
 
