@@ -430,5 +430,5 @@ Le projet suit une **feuille de route claire et structurée** afin d’assurer u
 ✔ **Support et mises à jour continues** pour assurer l’évolution du jeu.  
 ✔ **Gestion optimisée du code** via Git et des environnements bien définis.  
 
-Avec cette approche, *Frog’s* garantit **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours optimisée ! 🐸  
+Avec cette approche, notre jeu *Frog’s* est garantit d'avoir **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours plus appreciee par nos joueurs ! 🐸  
 
