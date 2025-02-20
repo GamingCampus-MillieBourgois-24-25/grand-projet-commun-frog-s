@@ -2,42 +2,42 @@
 
 ## Document Header
 
-**Project Title:** Frog’s - Mobile Simulation Game\
-**Version:** 1.0\
-**Date:** YYYY-MM-DD\
-**Author(s):** [Your Name]\
-**Contact:** [[your.email@example.com](mailto\:your.email@example.com)]
+**Project Title:** Frog’s \
+**Version:** 1.0 \
+**Date:** 2025-02-20 \
+**Author(s):** A.PATTE / L.QUEIROS / G.ANDRE / K.DIFALLAH / S.BONDEL \
+**Contact:** [[Leo Queiros](mailto\:lqueirosdasilva@gaming.tech)]
 
 ## &#x20; Revision History
 
 | Date       | Version | Description               | Author      |
 | ---------- | ------- | ------------------------- | ----------- |
-| YYYY-MM-DD | 1.0     | Initial document creation | [Your Name] |
+| 2025-02-20 | 1.0     | Ecriture initiale du document | A.PATTE |
 
 ## Table of Contents
 
 1. Introduction
-2. System Overview
-3. Requirements
-4. System Architecture & Design
-5. Detailed Module Design
-6. Interface Design
-7. Performance and Optimization
-8. Testing Strategy (TDD Implementation)
-9. Tools, Environment, and Deployment
-10. Security and Safety Considerations
-11. Project Timeline and Milestones
-12. Appendices
+2. Overview du systeme
+3. Exigences
+4. Architecture du systeme et design
+5. Conception détaillée du module
+6. Conception de l'interface
+7. Performance et optimisation
+8. Stratégie de test (mise en œuvre du TDD)
+9. Outils, environnement et déploiement
+10. Considérations relatives à la sécurité et à la sûreté
+11. Calendrier et étapes du projet
+12. Annexes
 
 ## Introduction
 
 ### Objectif du projet
 
-L’objectif principal de ce projet est de proposer une expérience de gestion relaxante où le joueur construit et développe un village de grenouilles. Chaque bâtiment a une fonction spécifique et permet d’optimiser la production de ressources. Le joueur est amené à collecter ces ressources afin d’améliorer les infrastructures existantes et attirer davantage de grenouilles.
+Ce projet a pour but de proposer une expérience de gestion relaxante où le joueur construit et développe un village de grenouilles. Chaque bâtiment a une fonction spécifique et permet d’optimiser la production de ressources. Le joueur est amené à collecter ces ressources afin d’améliorer les infrastructures existantes et attirer davantage de grenouilles.
 
 L’économie du jeu repose sur une seule ressource, **l’argent**, qui peut être obtenue passivement via les bâtiments ou activement via des mécaniques de monétisation telles que les **publicités et les achats intégrés**.
 
-### Choix technologique : Pourquoi Unity ?
+### Notre choix technologique : Pourquoi Unity ?
 
 Le jeu est développé sous **Unity** pour plusieurs raisons :
 
@@ -50,19 +50,19 @@ Le jeu est développé sous **Unity** pour plusieurs raisons :
 | **Graphismes et rendu**        | ✅ Suffisant pour le style visé | ✅ Plus avancé pour le photoréalisme |
 | **Coût d’utilisation**         | ✅ Gratuit jusqu'à un seuil de revenus | ❌ Royalties appliquées après 1M$ de revenus |
 
-**Conclusion** : Unity est le choix idéal pour *Frog's*, car il offre une excellente **optimisation mobile**, une **monétisation simplifiée** et une **interface plus accessible** pour un développement rapide et efficace.
+Donc Unity est le choix idéal pour notre jeu *Frog's*, car il offre une excellente **optimisation mobile**, une **monétisation simplifiée** et une **interface plus accessible** pour un développement rapide et efficace.
 
 ---
 
 ### 📌 Informations complémentaires
-- **Plateformes ciblées** : iOS & Android
+- **Plateformes ciblées** : Android (trop de problemes avec iOS)
 - **Langage utilisé** : C# avec Unity
 - **Modèle économique** : Freemium (achats intégrés et publicités)
-- **Sauvegarde des données** : Locale & Cloud (via Firebase)
+- **Sauvegarde des données** : Locale
 
 ---
 
-Ce projet est en cours de développement et vise à offrir une **expérience de gestion immersive et relaxante** avec un gameplay accessible et une direction artistique soignée. 🚀🐸
+Ce projet est en cours de développement et vise à offrir une **expérience de gestion immersive et relaxante** avec un gameplay accessible et une direction artistique soignée. 🐸
 
 ## 2. Vue d’ensemble du système
 
@@ -86,7 +86,7 @@ Le jeu est structuré en plusieurs **composants clés** :
 
 ### 2.3 Sauvegarde et Gestion des Données  
 
-L’ensemble des **données du jeu** est sauvegardé **localement** avec une **option de synchronisation sur le cloud** pour éviter toute perte de progression.  
+L’ensemble des **données du jeu** est sauvegardé **localement** pour éviter toute perte de progression.  
 L’utilisation de **Unity Addressables** permet :
 - **Une gestion optimisée de la mémoire**, en chargeant uniquement les ressources nécessaires.  
 - **Une réduction du poids du jeu** sur les appareils mobiles.  
@@ -96,13 +96,12 @@ L’utilisation de **Unity Addressables** permet :
 ### 🔹 Points Clés de l’Architecture :
 ✔ **Modularité** : Chaque composant fonctionne indépendamment tout en interagissant avec les autres.  
 ✔ **Optimisation mémoire** avec Unity Addressables pour limiter la consommation de ressources.  
-✔ **Sauvegarde hybride** : Stockage local avec possibilité de sauvegarde cloud.  
 ✔ **Expérience fluide** : Systèmes interconnectés garantissant une progression sans ralentissements.
 
-Cette architecture garantit **une flexibilité d’évolution** et **une performance stable** sur mobile, permettant d’intégrer facilement de nouvelles fonctionnalités au fil du temps. 🚀🐸
+Cette architecture garantit **une flexibilité d’évolution** et **une performance stable** sur mobile, permettant d’intégrer facilement de nouvelles fonctionnalités au fil du temps. 🐸
 
 
-## 3. Requirements
+## 3. Exigences
 
 ### 3.1 Functional Requirements
 
@@ -113,11 +112,10 @@ Cette architecture garantit **une flexibilité d’évolution** et **une perform
 
 ### 3.2 Non-Functional Requirements
 
-- **Performance:** Maintenir 60 FPS sur la majorité des appareils.
+- **Performance:** Maintenir 30 FPS sur la majorité des appareils.
 - **Scalabilité:** Supporter des mises à jour de contenu régulières.
-- **Portabilité:** Fonctionner sur iOS et Android.
-- **Accessibilité:** Interface intuitive et accessible à t
-  ### ous.
+- **Portabilité:** Fonctionner sur Android.
+- **Accessibilité:** Interface intuitive et accessible à tous.
 
 ## 4. Architecture du Système et Optimisation des Performances  
 
@@ -129,7 +127,7 @@ Les principaux modules du jeu sont les suivants :
 
 - 🖥 **UI Module** : Gère l’interface utilisateur et assure une interaction intuitive avec le joueur.
 - 💰 **Economy System** : Responsable de la gestion de l’argent généré et dépensé, influençant la progression.
-- 📂 **Data Storage** : Assure la **sauvegarde locale** et la **synchronisation cloud** pour éviter toute perte de données.
+- 📂 **Data Storage** : Assure la **sauvegarde locale** pour éviter toute perte de données.
 
 ---
 
@@ -160,7 +158,7 @@ Le **cœur du gameplay** suit une boucle optimisée qui permet au joueur d’int
 ✔ **Optimisation du rendu** avec une limitation des draw calls pour améliorer les performances.  
 ✔ **Gestion intelligente du chargement des données** grâce aux **Addressables**.  
 
-Grâce à ces optimisations, *Frog’s* garantit une **expérience fluide et performante** sur les appareils mobiles, même les plus anciens. 🚀🐸
+Grâce à ces optimisations, *Frog’s* aura une **expérience fluide et performante** sur les appareils mobiles, même les plus anciens. 🐸
 
 
 ## 5. Conception Détaillée des Modules et Stratégie de Test  
@@ -171,7 +169,7 @@ L’architecture du jeu repose sur **des classes indépendantes**, chacune ayant
 
 #### 📌 Principales Classes et Structures de Données :  
 
-- 🐸 **GrenouilleManager** :  
+- 🐸 **GrenouilleManager** (optionnel) :  
   - Gère les entités grenouilles et leur assignation de tâches.  
   - Associe des comportements spécifiques en fonction des bâtiments.  
   - Assure une gestion efficace des déplacements et interactions.  
@@ -201,7 +199,7 @@ Le développement du jeu suit une approche **Test-Driven Development (TDD)** afi
 
 3. **Tests de Performance** 🚀  
    - Mesurent la stabilité et la fluidité du jeu sur différentes plateformes mobiles.  
-   - Objectif : Maintenir **60 FPS** sur la majorité des appareils.  
+   - Objectif : Maintenir **30 FPS** sur la majorité des appareils.  
 
 4. **Tests Utilisateur** 🎮  
    - Permettent de collecter des **retours sur l’expérience de jeu**.  
@@ -215,7 +213,7 @@ Le développement du jeu suit une approche **Test-Driven Development (TDD)** afi
 ✔ **Suivi des performances** pour garantir une **expérience fluide** sur mobile.  
 ✔ **Phase de validation utilisateur** avant toute mise à jour majeure.  
 
-Grâce à cette approche rigoureuse, *Frog’s* assure **une expérience de jeu stable, optimisée et sans bugs majeurs** avant chaque déploiement ! 🚀🐸
+Grâce à cette approche rigoureuse, *Frog’s* assure **une expérience de jeu stable, optimisée et sans bugs majeurs** avant chaque déploiement ! 🐸
 
 
 ## 6. Conception de l’Interface et Déploiement  
@@ -238,18 +236,15 @@ Le jeu repose sur **des interfaces bien définies** permettant une communication
 
 Pour assurer des fonctionnalités avancées et une **meilleure gestion des données**, plusieurs services externes peuvent être intégrés :  
 
-- ☁ **Firebase (optionnel)** :  
-  - Utilisé pour la **sauvegarde cloud** et la **synchronisation des données** entre appareils.  
-
 - 💰 **Unity Ads & IAP** :  
   - Permet la **monétisation** via des **publicités et des achats intégrés**.  
-  - Gestion simplifiée des transactions avec les plateformes iOS et Android.  
+  - Gestion simplifiée des transactions avec Android.  
 
 ---
 
 ## 6.3 Déploiement et Maintenance  
 
-Le jeu sera **disponible sur iOS et Android**, avec des mises à jour régulières pour **maintenir l’engagement des joueurs** et assurer la **stabilité du système**.  
+Le jeu sera **disponible sur Android**, avec des mises à jour régulières pour **maintenir l’engagement des joueurs** et assurer la **stabilité du système**.  
 
 ### 📌 Cycle de Déploiement Structuré  
 
@@ -272,7 +267,7 @@ Le jeu sera **disponible sur iOS et Android**, avec des mises à jour régulièr
 ✔ **Mise en place d’un support utilisateur** pour répondre aux **retours des joueurs** et proposer des améliorations continues.  
 ✔ **Versioning sous Git** pour une gestion efficace des mises à jour et des différentes branches de développement.  
 
-Grâce à cette approche, *Frog’s* garantit une **expérience fluide et bien maintenue**, avec un cycle de mises à jour optimisé pour éviter les interruptions et améliorer continuellement le jeu ! 🐸🚀
+Grâce à cette approche, *Frog’s* garantit une **expérience fluide et bien maintenue**, avec un cycle de mises à jour optimisé pour éviter les interruptions et améliorer continuellement le jeu ! 🐸
 
 
 ## 7. Performance, Optimisation et Sécurité  
@@ -324,7 +319,7 @@ La **sécurité des joueurs** et la **protection de leurs données** sont une pr
 ✔ **Achat in-app sécurisé** pour éviter les fraudes et garantir la confiance des utilisateurs.  
 ✔ **Respect des normes internationales** assurant la conformité légale du jeu.  
 
-Grâce à ces stratégies, *Frog’s* assure **une performance optimale et une sécurité renforcée**, garantissant une **expérience utilisateur fluide, fiable et conforme aux meilleures pratiques**. 🚀🐸  
+Grâce à ces stratégies, *Frog’s* assure **une performance optimale et une sécurité renforcée**, garantissant une **expérience utilisateur fluide, fiable et conforme aux meilleures pratiques**. 🐸  
 
 
 ## 8. Stratégie de Test et Environnement de Développement  
@@ -370,7 +365,7 @@ Le développement s’appuie sur un **environnement structuré** permettant une 
 ✔ **Collaboration fluide** via un système de versioning clair et structuré.  
 ✔ **Sauvegarde et monétisation efficaces** grâce aux services tiers intégrés.  
 
-En combinant **tests rigoureux**, **environnement de développement bien structuré**, et **gestion optimisée des ressources**, *Frog’s* garantit **une expérience fluide et évolutive** sur mobile. 🚀🐸  
+En combinant **tests rigoureux**, **environnement de développement bien structuré**, et **gestion optimisée des ressources**, *Frog’s* garantit **une expérience fluide et évolutive** sur mobile. 🐸  
 
 
 ## 9. Outils, Environnement et Déploiement  
@@ -438,7 +433,7 @@ Le projet suit une **feuille de route claire et structurée** afin d’assurer u
 ✔ **Support et mises à jour continues** pour assurer l’évolution du jeu.  
 ✔ **Gestion optimisée du code** via Git et des environnements bien définis.  
 
-Avec cette approche, *Frog’s* garantit **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours optimisée ! 🚀🐸  
+Avec cette approche, *Frog’s* garantit **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours optimisée ! 🐸  
 
 ## 10. Project Timeline and Milestones
 
