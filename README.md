@@ -25,9 +25,6 @@
 7. Performance et optimisation
 8. Stratégie de test (mise en œuvre du TDD)
 9. Outils, environnement et déploiement
-10. Considérations relatives à la sécurité et à la sûreté
-11. Calendrier et étapes du projet
-12. Annexes
 
 ## Introduction
 
@@ -434,12 +431,4 @@ Le projet suit une **feuille de route claire et structurée** afin d’assurer u
 ✔ **Gestion optimisée du code** via Git et des environnements bien définis.  
 
 Avec cette approche, *Frog’s* garantit **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours optimisée ! 🐸  
-
-## 10. Project Timeline and Milestones
-
-(Définition détaillée des étapes de production)
-
-## 11. Appendices
-
-(Ajout des schémas de classes et UML)
 
