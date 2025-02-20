@@ -327,17 +327,51 @@ La **sécurité des joueurs** et la **protection de leurs données** sont une pr
 Grâce à ces stratégies, *Frog’s* assure **une performance optimale et une sécurité renforcée**, garantissant une **expérience utilisateur fluide, fiable et conforme aux meilleures pratiques**. 🚀🐸  
 
 
-## 8. Testing Strategy (TDD Implementation)
+## 8. Stratégie de Test et Environnement de Développement  
 
-### 8.1 Unit Testing
+### 8.1 Implémentation du Test-Driven Development (TDD)  
 
-- Vérifier la cohérence des données de production de ressources.
-- Tester les interactions entre les modules grenouilles et bâtiments.
+Le développement du jeu suit une **approche basée sur le Test-Driven Development (TDD)** pour assurer une **stabilité maximale** et détecter les erreurs avant l’intégration de nouvelles fonctionnalités.  
 
-### 8.2 Integration Testing
+#### 🛠 Tests Unitaires  
 
-- Vérifier la cohérence entre **GrenouilleManager** et **BuildingManager**.
-- Tester les sauvegardes locales et cloud.
+Les tests unitaires garantissent que chaque module fonctionne correctement de manière isolée :  
+- 🔄 **Vérification des données de production de ressources** : S’assurer que la génération et la collecte de l’argent suivent les règles économiques définies.  
+- 🐸 **Test des interactions entre les modules GrenouilleManager et BuildingManager** : Validation des attributions de tâches et de la gestion des bâtiments.  
+
+#### 🔄 Tests d’Intégration  
+
+Ces tests permettent de vérifier la **communication entre les différents systèmes** du jeu :  
+- 🏗 **Cohérence entre GrenouilleManager et BuildingManager** : Assurer un fonctionnement fluide entre la gestion des grenouilles et la construction.  
+- ☁ **Tests des sauvegardes locales et cloud** : Vérifier l’intégrité des données et la bonne synchronisation des sauvegardes via Firebase (optionnel).  
+
+---
+
+## 8.2 Outils et Environnement de Développement  
+
+Le développement s’appuie sur un **environnement structuré** permettant une **collaboration efficace** et un **déploiement fluide**.  
+
+- 🎮 **Moteur de jeu** : *Unity*, utilisé pour ses performances optimisées sur mobile.  
+- 💻 **Langage de programmation** : *C#*, offrant une bonne gestion des objets et une intégration native avec Unity.  
+- 🛠 **IDE recommandé** :  
+  - *Visual Studio* pour son intégration avec Unity.  
+  - *JetBrains Rider* pour son analyse avancée du code et ses outils de refactoring.  
+- 🔄 **Système de versioning** :  
+  - Utilisation de *Git* (*GitHub* ou *GitLab*) pour la gestion collaborative et le suivi des versions.  
+- ☁ **Services tiers intégrés** :  
+  - *Firebase* (optionnel) pour **l’analyse et la sauvegarde cloud**.  
+  - *Unity Ads & IAP* pour **la monétisation via publicités et achats intégrés**.  
+
+---
+
+### 🔹 Avantages de cette Approche :  
+✔ **Fiabilité du code** grâce aux tests automatisés et au TDD.  
+✔ **Développement optimisé** avec des outils performants et adaptés.  
+✔ **Collaboration fluide** via un système de versioning clair et structuré.  
+✔ **Sauvegarde et monétisation efficaces** grâce aux services tiers intégrés.  
+
+En combinant **tests rigoureux**, **environnement de développement bien structuré**, et **gestion optimisée des ressources**, *Frog’s* garantit **une expérience fluide et évolutive** sur mobile. 🚀🐸  
+
 
 ## 9. Tools, Environment, and Deployment
 
