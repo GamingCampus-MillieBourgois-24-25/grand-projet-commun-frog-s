@@ -5,7 +5,7 @@
 **Project Title:** Frog’s
 **Version:** 1.0  
 **Date:** 20/02/2025  
-**Author(s):** [A.PATTE - K.DIFALLAH - G.ANDRE - L.QUEIROS - S.BONDEL]  
+**Author(s):** A.PATTE - K.DIFALLAH - G.ANDRE - L.QUEIROS - S.BONDEL  
 **Contact:** [lqueirosdasilva@gaming.tech]  
 
 ## Revision History
@@ -36,7 +36,7 @@ Ce document décrit la conception technique du jeu *Frog's*, un jeu de simulatio
 
 ### 1.2 Scope
 **Objectif:** Développer un jeu de gestion de village de grenouilles, où les joueurs construisent des bâtiments et collectent des ressources.  
-**Application:** Mobile (iOS, Android)  
+**Application:** Mobile (Android)  
 
 ### 1.3 Definitions, Acronyms, and Abbreviations
 - **TDD:** Test-Driven Development  
