@@ -373,36 +373,78 @@ Le développement s’appuie sur un **environnement structuré** permettant une 
 En combinant **tests rigoureux**, **environnement de développement bien structuré**, et **gestion optimisée des ressources**, *Frog’s* garantit **une expérience fluide et évolutive** sur mobile. 🚀🐸  
 
 
-## 9. Tools, Environment, and Deployment
+## 9. Outils, Environnement et Déploiement  
 
-### 9.1 Development Tools
+### 9.1 Outils de Développement  
 
-- **Moteur:** Unity
-- **Langage:** C#
-- **IDE recommandé:** Visual Studio, Rider
+Le jeu est conçu en utilisant une **stack technologique optimisée** pour assurer **performance et flexibilité** :  
 
-### 9.2 Version Control
-
-- **Git** via GitHub ou GitLab
-- **Branche principale:** `main`
-- **Branche de développement:** `develop`
-
-## 10. Security and Safety Considerations
-
-- Validation des entrées utilisateur pour éviter les corruptions de sauvegarde.
-- Vérification des achats intégrés pour éviter les abus.
-
-## 11. Project Timeline and Milestones
-
-(Définition détaillée des étapes de production)
-
-## 12. Appendices
-
-(Ajout des schémas de classes et UML)
+- 🎮 **Moteur de jeu** : *Unity*, pour ses capacités d’optimisation mobile et sa gestion avancée des assets.  
+- 💻 **Langage de programmation** : *C#*, pour sa compatibilité avec Unity et sa gestion efficace des objets.  
+- 🛠 **Environnements de Développement** :  
+  - *Visual Studio* : Intégration native avec Unity et support des plugins.  
+  - *JetBrains Rider* : Analyse avancée du code et outils de refactoring performants.  
 
 ---
 
-## Conclusion
+### 9.2 Gestion de Version et Contrôle du Code  
 
-Ce TDD fournit une base solide pour le développement technique de *Frog's*, justifiant les choix technologiques et décrivant en détail l’architecture du jeu.
+Le projet utilise **Git** (*GitHub* ou *GitLab*) pour un suivi efficace du développement.  
+
+- 🌳 **Branches principales** :  
+  - `main` : Version stable et prête pour la mise en production.  
+  - `develop` : Branche principale de développement, où sont intégrées les nouvelles fonctionnalités avant validation.  
+- 🔄 **Workflow Git** :  
+  - Utilisation de branches **feature** pour chaque nouvelle fonctionnalité avant intégration dans `develop`.  
+  - Revues de code et tests avant toute fusion dans `main`.  
+
+---
+
+## 9.3 Planification et Jalons du Projet  
+
+Le projet suit une **feuille de route claire et structurée** afin d’assurer une progression fluide et une gestion efficace du temps.  
+
+### 📌 Étapes Clés du Développement  
+
+1️⃣ **Phase de Pré-Production** 🎯  
+   - Définition des **mécaniques de jeu** et élaboration des **documents techniques**.  
+   - Création des **premiers prototypes** pour valider les concepts.  
+
+2️⃣ **Développement Alpha** 🛠  
+   - Implémentation des **fonctionnalités principales**.  
+   - Premiers tests unitaires et validation des modules de base.  
+
+3️⃣ **Phase Bêta** 🔄  
+   - Intégration des **tests d’interaction et de performance**.  
+   - Amélioration du gameplay et correction des erreurs majeures.  
+
+4️⃣ **Lancement Soft** 🚀  
+   - Mise en ligne **restreinte** pour tester le jeu sur un **échantillon de joueurs**.  
+   - Ajustements basés sur les retours avant le lancement global.  
+
+5️⃣ **Sortie Officielle** 🌍  
+   - **Déploiement du jeu** sur iOS et Android.  
+   - Campagne de communication pour assurer une bonne visibilité.  
+
+6️⃣ **Suivi Post-Lancement** 🔧  
+   - **Maintenance régulière** et correction des bugs restants.  
+   - Ajouts de **nouveaux contenus** et fonctionnalités via des mises à jour.  
+
+---
+
+### 🔹 Avantages de cette Organisation :  
+✔ **Développement fluide** avec un cycle structuré.  
+✔ **Déploiement progressif** pour minimiser les risques techniques.  
+✔ **Support et mises à jour continues** pour assurer l’évolution du jeu.  
+✔ **Gestion optimisée du code** via Git et des environnements bien définis.  
+
+Avec cette approche, *Frog’s* garantit **une production efficace**, un **lancement maîtrisé**, et **un suivi post-lancement rigoureux** pour une expérience de jeu toujours optimisée ! 🚀🐸  
+
+## 10. Project Timeline and Milestones
+
+(Définition détaillée des étapes de production)
+
+## 11. Appendices
+
+(Ajout des schémas de classes et UML)
 
