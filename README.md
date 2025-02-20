@@ -119,21 +119,49 @@ Cette architecture garantit **une flexibilité d’évolution** et **une perform
 - **Accessibilité:** Interface intuitive et accessible à t
   ### ous.
 
-## 4. System Architecture & Design
+## 4. Architecture du Système et Optimisation des Performances  
 
-### 4.1 Architectural Overview
+### 4.1 Vue d’Ensemble de l’Architecture  
 
-Utilisation d’une architecture basée sur des modules indépendants (bâtiments, grenouilles, économie).
+Le jeu utilise une **architecture modulaire** où chaque composant fonctionne indépendamment tout en interagissant avec les autres. Cette approche permet une **meilleure flexibilité**, facilitant l’évolution du projet avec l’ajout de nouvelles fonctionnalités.
 
-### 4.2 Module Breakdown
+Les principaux modules du jeu sont les suivants :
 
-- **UI Module:** Interface interactive et intuitive.
-- **Economy System:** Gestion de l’argent généré et dépensé.
-- **Data Storage:** Sauvegarde locale et cloud.
+- 🖥 **UI Module** : Gère l’interface utilisateur et assure une interaction intuitive avec le joueur.
+- 💰 **Economy System** : Responsable de la gestion de l’argent généré et dépensé, influençant la progression.
+- 📂 **Data Storage** : Assure la **sauvegarde locale** et la **synchronisation cloud** pour éviter toute perte de données.
 
-### 4.3 Gameplay Loop Diagram
+---
 
-(Diagramme détaillant la boucle principale du jeu)
+### 4.2 Optimisation et Performances  
+
+Le jeu vise à **maintenir une fluidité constante** sur une large gamme d’appareils mobiles. Pour cela, plusieurs techniques d’optimisation sont mises en place :
+
+- 🚀 **Object Pooling** : Réduction des allocations dynamiques de mémoire pour minimiser les instanciations coûteuses.
+- 🎨 **Compression des Assets** : Textures et sons compressés pour limiter l’empreinte mémoire.
+- 🔄 **Minimisation des Draw Calls** : Regroupement des objets pour optimiser le rendu et alléger la charge CPU/GPU.
+- 🎯 **Gestion efficace du chargement des ressources** : Utilisation des **Unity Addressables** pour ne charger que les assets nécessaires au bon moment.
+
+L’optimisation du **code source** est également une priorité, avec une **séparation claire des responsabilités** entre les modules, assurant ainsi une **meilleure maintenabilité** et une réduction des risques de bugs.
+
+---
+
+### 4.3 Boucle de Gameplay  
+
+*(Diagramme illustrant la boucle principale du jeu ici)*  
+
+Le **cœur du gameplay** suit une boucle optimisée qui permet au joueur d’interagir efficacement avec son environnement. Chaque action (construction, amélioration, collecte) est gérée par des systèmes indépendants, garantissant **une expérience fluide et sans latence**.
+
+---
+
+### 🔹 Principaux Axes d’Optimisation :
+✔ **Architecture modulaire** : Chaque module peut être amélioré indépendamment.  
+✔ **Réduction de la consommation mémoire** avec des assets compressés et du pooling d’objets.  
+✔ **Optimisation du rendu** avec une limitation des draw calls pour améliorer les performances.  
+✔ **Gestion intelligente du chargement des données** grâce aux **Addressables**.  
+
+Grâce à ces optimisations, *Frog’s* garantit une **expérience fluide et performante** sur les appareils mobiles, même les plus anciens. 🚀🐸
+
 
 ## 5. Detailed Module Design
 
