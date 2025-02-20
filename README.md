@@ -275,18 +275,57 @@ Le jeu sera **disponible sur iOS et Android**, avec des mises à jour régulièr
 Grâce à cette approche, *Frog’s* garantit une **expérience fluide et bien maintenue**, avec un cycle de mises à jour optimisé pour éviter les interruptions et améliorer continuellement le jeu ! 🐸🚀
 
 
-## 7. Performance and Optimization
+## 7. Performance, Optimisation et Sécurité  
 
-### 7.1 Performance Goals
+### 7.1 Objectifs de Performance  
 
-- Maintenir 60 FPS avec des graphismes optimisés.
-- Réduire la consommation mémoire grâce aux **Addressables**.
+Le jeu est conçu pour offrir une **expérience fluide et optimisée**, même sur des appareils mobiles aux capacités limitées. Les principaux objectifs de performance sont :  
 
-### 7.2 Optimization Techniques
+- 🎯 **Maintenir un framerate stable à 60 FPS** avec des graphismes optimisés.  
+- 📉 **Réduire la consommation mémoire** en utilisant **Unity Addressables** pour gérer efficacement le chargement des assets.  
 
-- Utilisation du pooling pour les objets fréquemment générés.
-- Compression des textures et des sons.
-- Réduction des appels draw pour limiter l'impact sur le CPU.
+---
+
+### 7.2 Techniques d'Optimisation  
+
+Pour atteindre ces performances, plusieurs techniques sont mises en place :  
+
+- 🚀 **Pooling d’objets** : Réutilisation des objets fréquemment générés afin de limiter les allocations de mémoire dynamiques.  
+- 🎨 **Compression des textures et des sons** : Réduction de la taille des fichiers pour améliorer les performances et diminuer le temps de chargement.  
+- 🔄 **Réduction des Draw Calls** : Optimisation du rendu graphique pour limiter l’impact sur le CPU et le GPU.  
+
+Ces optimisations garantissent **une meilleure fluidité**, une **consommation réduite de la batterie**, et une **expérience sans ralentissements**.
+
+---
+
+## 7.3 Sécurité et Protection des Données  
+
+La **sécurité des joueurs** et la **protection de leurs données** sont une priorité absolue. Plusieurs mesures sont mises en place pour éviter tout abus ou exploitation malveillante :  
+
+- 🔐 **Chiffrement des sauvegardes**  
+  - Protection contre toute altération ou corruption des fichiers de jeu.  
+  - Sauvegarde sécurisée des données locales et cloud.  
+
+- 🛡 **Validation des entrées utilisateur**  
+  - Vérification des interactions pour **prévenir les exploits** et empêcher les comportements anormaux.  
+
+- 💰 **Protection des achats intégrés**  
+  - Sécurisation des transactions pour éviter la fraude et garantir un système d’achats fiable.  
+
+- 📜 **Respect des Réglementations**  
+  - **RGPD (Europe)** : Protection des données personnelles des joueurs.  
+  - **COPPA (États-Unis)** : Conformité aux règles de protection des enfants en ligne.  
+
+---
+
+### 🔹 Principaux Bénéfices de ces Mesures :
+✔ **Jeu optimisé** pour une **expérience fluide sur mobile**.  
+✔ **Données des joueurs protégées** avec un **chiffrement avancé**.  
+✔ **Achat in-app sécurisé** pour éviter les fraudes et garantir la confiance des utilisateurs.  
+✔ **Respect des normes internationales** assurant la conformité légale du jeu.  
+
+Grâce à ces stratégies, *Frog’s* assure **une performance optimale et une sécurité renforcée**, garantissant une **expérience utilisateur fluide, fiable et conforme aux meilleures pratiques**. 🚀🐸  
+
 
 ## 8. Testing Strategy (TDD Implementation)
 
