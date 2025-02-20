@@ -2,17 +2,17 @@
 
 ## Document Header
 
-**Project Title:** Frog’s - Mobile Simulation Game  
+**Project Title:** Frog’s
 **Version:** 1.0  
-**Date:** YYYY-MM-DD  
-**Author(s):** [Your Name]  
-**Contact:** [your.email@example.com]  
+**Date:** 20/02/2025  
+**Author(s):** [A.PATTE - K.DIFALLAH - G.ANDRE - L.QUEIROS - S.BONDEL]  
+**Contact:** [lqueirosdasilva@gaming.tech]  
 
 ## Revision History
 
 | Date       | Version | Description                 | Author      |
 |------------|---------|-----------------------------|-------------|
-| YYYY-MM-DD | 1.0     | Initial document creation   | [Your Name] |
+| 20/02/2025 | 1.0     | Création initiale du document   | Adrien PATTE |
 
 ## Table of Contents
 
