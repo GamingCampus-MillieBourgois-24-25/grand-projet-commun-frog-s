@@ -163,12 +163,60 @@ Le **cœur du gameplay** suit une boucle optimisée qui permet au joueur d’int
 Grâce à ces optimisations, *Frog’s* garantit une **expérience fluide et performante** sur les appareils mobiles, même les plus anciens. 🚀🐸
 
 
-## 5. Detailed Module Design
+## 5. Conception Détaillée des Modules et Stratégie de Test  
 
-### 5.1 Class Diagrams and Data Structures
+### 5.1 Conception des Modules  
 
-- **GrenouilleManager**: Gère les entités grenouilles et leur assignation de tâches.
-- **BuildingManager**: Responsable de la construction et de l'amélioration des bâtiments.
+L’architecture du jeu repose sur **des classes indépendantes**, chacune ayant un rôle précis pour structurer les mécaniques principales.  
+
+#### 📌 Principales Classes et Structures de Données :  
+
+- 🐸 **GrenouilleManager** :  
+  - Gère les entités grenouilles et leur assignation de tâches.  
+  - Associe des comportements spécifiques en fonction des bâtiments.  
+  - Assure une gestion efficace des déplacements et interactions.  
+
+- 🏗 **BuildingManager** :  
+  - Responsable de la construction et de l’amélioration des bâtiments.  
+  - Gère les **coûts et temps de construction**.  
+  - Assure la compatibilité entre les bâtiments et les grenouilles assignées.  
+
+Chaque module est conçu pour fonctionner de manière **autonome**, tout en interagissant avec les autres composants du jeu pour garantir une **progression fluide et logique**.
+
+---
+
+### 5.2 Stratégie de Test et Validation  
+
+Le développement du jeu suit une approche **Test-Driven Development (TDD)** afin d’assurer une **stabilité maximale** et une **réduction des erreurs** avant l’intégration de nouvelles fonctionnalités.  
+
+#### ✅ Types de Tests Implémentés :  
+
+1. **Tests Unitaires** 🛠  
+   - Vérifient les fonctionnalités de chaque module individuellement.  
+   - Exemple : Validation de la gestion de l’économie et des interactions entre grenouilles et bâtiments.  
+
+2. **Tests d’Intégration** 🔄  
+   - Assurent la communication correcte entre les différents systèmes du jeu.  
+   - Exemple : Vérifier que le **GrenouilleManager** interagit correctement avec le **BuildingManager**.  
+
+3. **Tests de Performance** 🚀  
+   - Mesurent la stabilité et la fluidité du jeu sur différentes plateformes mobiles.  
+   - Objectif : Maintenir **60 FPS** sur la majorité des appareils.  
+
+4. **Tests Utilisateur** 🎮  
+   - Permettent de collecter des **retours sur l’expérience de jeu**.  
+   - Ajustements effectués en fonction des observations et des sessions de test.  
+
+---
+
+### 🔹 Sécurisation et Automatisation des Tests  
+
+✔ **Tests automatisés réguliers** pour prévenir toute régression.  
+✔ **Suivi des performances** pour garantir une **expérience fluide** sur mobile.  
+✔ **Phase de validation utilisateur** avant toute mise à jour majeure.  
+
+Grâce à cette approche rigoureuse, *Frog’s* assure **une expérience de jeu stable, optimisée et sans bugs majeurs** avant chaque déploiement ! 🚀🐸
+
 
 ## 6. Interface Design
 
