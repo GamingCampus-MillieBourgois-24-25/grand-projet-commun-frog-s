@@ -64,23 +64,43 @@ Le jeu est développé sous **Unity** pour plusieurs raisons :
 
 Ce projet est en cours de développement et vise à offrir une **expérience de gestion immersive et relaxante** avec un gameplay accessible et une direction artistique soignée. 🚀🐸
 
-## 2. System Overview
+## 2. Vue d’ensemble du système
 
-### 2.1 High-Level Description
+### 2.1 Description Générale  
 
-*Frog’s* est un jeu mobile développé sous Unity avec une architecture modulaire, permettant la gestion des bâtiments, des grenouilles et des ressources en temps réel.
+*Frog’s* est un jeu mobile développé sous **Unity** avec une **architecture modulaire** permettant la gestion en temps réel des **bâtiments**, des **grenouilles** et des **ressources**. Le jeu repose sur plusieurs **modules interconnectés**, chacun ayant un rôle bien défini pour assurer une **expérience fluide et optimisée**.
 
-### 2.2 System Context Diagram
+---
 
-(Diagramme représentant les interactions principales du jeu)
+### 2.2 Architecture du Système  
 
-### 2.3 Major Components
+Le jeu est structuré en plusieurs **composants clés** :
 
-- **Rendering Engine:** Gestion des assets graphiques et animations.
-- **Resource System:** Génération et collecte de l'argent (unique ressource).
-- **Input Manager:** Captation des actions des joueurs (tactile).
-- **Game Logic:** Gestion des mécaniques de construction et d’amélioration.
-- **Audio Engine:** Gestion des sons et musiques d’ambiance.
+- 🎨 **Moteur de Rendu (Rendering Engine)** : Gère l’affichage des assets graphiques et les animations pour assurer une expérience immersive.
+- 💰 **Système de Ressources (Resource System)** : Responsable de la génération et de la collecte de l’argent, la ressource principale du jeu.
+- 🎮 **Gestion des Entrées (Input Manager)** : Capture les actions du joueur (tactile) comme la construction, l’amélioration des bâtiments et l’interaction avec l’environnement.
+- 🔄 **Logique du Jeu (Game Logic)** : Orchestre les interactions entre les différents systèmes pour garantir une **progression fluide** et équilibrée.
+- 🎵 **Moteur Audio (Audio Engine)** : Gère les sons et musiques d’ambiance pour renforcer l’immersion et le dynamisme du jeu.
+
+---
+
+### 2.3 Sauvegarde et Gestion des Données  
+
+L’ensemble des **données du jeu** est sauvegardé **localement** avec une **option de synchronisation sur le cloud** pour éviter toute perte de progression.  
+L’utilisation de **Unity Addressables** permet :
+- **Une gestion optimisée de la mémoire**, en chargeant uniquement les ressources nécessaires.  
+- **Une réduction du poids du jeu** sur les appareils mobiles.  
+
+---
+
+### 🔹 Points Clés de l’Architecture :
+✔ **Modularité** : Chaque composant fonctionne indépendamment tout en interagissant avec les autres.  
+✔ **Optimisation mémoire** avec Unity Addressables pour limiter la consommation de ressources.  
+✔ **Sauvegarde hybride** : Stockage local avec possibilité de sauvegarde cloud.  
+✔ **Expérience fluide** : Systèmes interconnectés garantissant une progression sans ralentissements.
+
+Cette architecture garantit **une flexibilité d’évolution** et **une performance stable** sur mobile, permettant d’intégrer facilement de nouvelles fonctionnalités au fil du temps. 🚀🐸
+
 
 ## 3. Requirements
 
