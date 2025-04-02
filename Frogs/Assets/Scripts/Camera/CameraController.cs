@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class CameraController : MonoBehaviour
 {
@@ -37,6 +39,8 @@ public class CameraController : MonoBehaviour
         {
             lastPanPosition = Input.mousePosition;
             isPanning = true;
+
+            TryInteract(Input.mousePosition);
         }
         else if (Input.GetMouseButton(0) && isPanning)
         {
@@ -65,6 +69,8 @@ public class CameraController : MonoBehaviour
                 lastPanPosition = touch.position;
                 panFingerId = touch.fingerId;
                 isPanning = true;
+
+                TryInteract(touch.position);
             }
             else if (touch.fingerId == panFingerId && touch.phase == TouchPhase.Moved && isPanning)
             {
@@ -90,6 +96,25 @@ public class CameraController : MonoBehaviour
 
             float deltaDistance = prevDistance - currentDistance;
             ZoomCamera(deltaDistance * zoomSpeedTouch);
+        }
+    }
+    void TryInteract(Vector2 screenPos)
+    {
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+        {
+            // On clique sur un bouton UI → ne rien faire
+            return;
+        }
+
+        Ray ray = cam.ScreenPointToRay(screenPos);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
+
+        if (hit.collider != null)
+        {
+            Debug.Log("Interacted with: " + hit.collider.name);
+
+            // Exemple : appeler une fonction sur le bâtiment cliqué
+            hit.collider.SendMessage("OnClicked", SendMessageOptions.DontRequireReceiver);
         }
     }
 
