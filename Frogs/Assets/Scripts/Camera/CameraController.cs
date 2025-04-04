@@ -7,11 +7,11 @@ public class CameraController : MonoBehaviour
     [Header("Pan Settings")]
     public float dragSpeed = 0.15f;
     public float zoomSpeedTouch = 0.01f;
-    public float zoomSpeedMouse = 5f;
+    public float zoomSpeedMouse = 50f;
 
     [Header("Zoom Limits")]
-    public float minZoom = 5f;
-    public float maxZoom = 20f;
+    public float minZoom = 60f;
+    public float maxZoom = 130f;
 
     private Camera cam;
     private Vector2 lastPanPosition;
@@ -53,7 +53,7 @@ public class CameraController : MonoBehaviour
             isPanning = false;
         }
 
-        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        float scroll = -Input.GetAxis("Mouse ScrollWheel");
         ZoomCamera(scroll * zoomSpeedMouse);
     }
 
@@ -120,27 +120,39 @@ public class CameraController : MonoBehaviour
 
     void PanCamera(Vector2 delta)
     {
-        Vector3 move = new Vector3(-delta.x, -delta.y, 0) * dragSpeed * Time.deltaTime;
+        Vector3 move = new Vector3(-delta.x, 0,-delta.y) * dragSpeed * Time.deltaTime;
         transform.Translate(move, Space.World);
     }
 
 
 
+    // void ZoomCamera(float delta)
+    // {
+    //     float newSize = cam.orthographic ? cam.orthographicSize + delta : cam.transform.position.y + delta;
+
+    //     newSize = Mathf.Clamp(newSize, minZoom, maxZoom);
+
+    //     if (cam.orthographic)
+    //     {
+    //         cam.orthographicSize = newSize;
+    //     }
+    //     else
+    //     {
+    //         Vector3 camPos = cam.transform.position;
+    //         camPos.y = newSize;
+    //         cam.transform.position = camPos;
+    //     }
+    // }
+
     void ZoomCamera(float delta)
-    {
-        float newSize = cam.orthographic ? cam.orthographicSize + delta : cam.transform.position.y + delta;
+{
+    float newFOV = cam.fieldOfView + delta;
 
-        newSize = Mathf.Clamp(newSize, minZoom, maxZoom);
+    // Limiter la valeur du FOV dans une plage spécifiée
+    newFOV = Mathf.Clamp(newFOV, minZoom, maxZoom);
 
-        if (cam.orthographic)
-        {
-            cam.orthographicSize = newSize;
-        }
-        else
-        {
-            Vector3 camPos = cam.transform.position;
-            camPos.y = newSize;
-            cam.transform.position = camPos;
-        }
-    }
+    // Appliquer le nouveau FOV à la caméra
+    cam.fieldOfView = newFOV;
+}
+
 }
