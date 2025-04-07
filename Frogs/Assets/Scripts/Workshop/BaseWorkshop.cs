@@ -1,6 +1,6 @@
-using System;
 using System.Collections;
 using MiniGames;
+using UI;
 using UnityEngine;
 
 namespace Workshop
@@ -8,22 +8,29 @@ namespace Workshop
     public class BaseWorkshop : MonoBehaviour
     {
         [Header("Base Workshop Settings")]
-        [SerializeField] protected string uniqueId = System.Guid.NewGuid().ToString();
+        [SerializeField, HideInInspector] private string uniqueId;
+        public string UniqueId => uniqueId;
 
         [Header("Base Workshop Stats")]
         [SerializeField] protected int level = 1;
         [SerializeField] protected int goldPerCycle = 1;
         [SerializeField] protected int goldPricePerLevel = 50;
+        [SerializeField] protected GameObject miniGame;
 
         [Header("Core Scripts")]
-        [SerializeField] protected BaseMiniGames miniGames;
         [SerializeField] private GameManager gameManager;
-        
+        [SerializeField] private WorkshopUIManager workshopUIManager;
+
+        protected void Awake()
+        {
+            uniqueId = System.Guid.NewGuid().ToString();
+        }
+
         protected void Start()
         {
             StartCoroutine(GenerateGoldCoroutine());
-            uniqueId = System.Guid.NewGuid().ToString();
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+            workshopUIManager = GameObject.FindGameObjectWithTag("WorkshopUIManager").GetComponent<WorkshopUIManager>();
         }
 
         IEnumerator GenerateGoldCoroutine()
@@ -33,6 +40,11 @@ namespace Workshop
                 yield return new WaitForSeconds(1f);
                 gameManager.AddMoney(goldPerCycle);
             }
+        }
+
+        protected void OnMouseDown()
+        {
+            gameManager.ShowWorkshopUI_Manager();
         }
 
         protected void Update()
@@ -53,5 +65,6 @@ namespace Workshop
                 goldPricePerLevel *= 2;
             }
         }
+        
     }
 }

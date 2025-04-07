@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goldMultiplier: 1
+  hasWin: 0
+  gameManager: {fileID: 0}
 --- !u!1 &1798940524206859699
 GameObject:
   m_ObjectHideFlags: 0
@@ -57,7 +59,7 @@ GameObject:
   - component: {fileID: 8797743156734309381}
   - component: {fileID: 6470668349743585293}
   - component: {fileID: 8746319136751832159}
-  - component: {fileID: 289859264986719367}
+  - component: {fileID: 5857794739197769994}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -153,7 +155,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &289859264986719367
+--- !u!114 &5857794739197769994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,19 +164,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798940524206859699}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a283ce4efbcfb488d32d33d1d7602a, type: 3}
+  m_Script: {fileID: 11500000, guid: c5df208bb4499854dbce7b0b45f1e2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniqueId: 97142548-f9be-41e0-9d02-20a3f33839a6
+  uniqueId: 
   level: 1
-  goldPerCycle: 2
-  goldPricePerLevel: 25
-  miniGames: {fileID: 3519467773914235803}
-  blacksmithFrogPrefab: {fileID: 0}
-  blacksmithWorkshopPrefab: {fileID: 0}
-  blacksmithWorkshopUI: {fileID: 0}
-  workshopName: Blacksmith
-  workshopDescription: A place to forge weapons and armor.
+  goldPerCycle: 1
+  goldPricePerLevel: 50
+  miniGame: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
+    type: 3}
+  gameManager: {fileID: 0}
+  lumberjackFrogPrefab: {fileID: 0}
+  lumberjackWorkshopPrefab: {fileID: 0}
+  lumberjackWorkshopUI: {fileID: 0}
+  workshopName: Lumberjack
+  workshopDescription: A place to chop wood and gather resources.
 --- !u!1 &3489429972677111965
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,6 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4345236281448067059}
+  - component: {fileID: 3333875457470703376}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -209,6 +214,52 @@ Transform:
   - {fileID: 2870889288929052235}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &3333875457470703376
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489429972677111965}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1001 &439436504868677825
 PrefabInstance:
   m_ObjectHideFlags: 0
