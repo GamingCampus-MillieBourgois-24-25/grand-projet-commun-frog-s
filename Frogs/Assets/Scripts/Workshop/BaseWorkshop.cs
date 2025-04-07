@@ -13,13 +13,14 @@ namespace Workshop
         [SerializeField] protected int level = 1;
         [SerializeField] protected int goldPerCycle = 1;
         [SerializeField] protected int goldPricePerLevel = 50;
+
+        private GameManager gameManager;
         
-        [Header("Player Test")]
-        public int playerGold = 0;
 
         protected void Start()
         {
             StartCoroutine(GenerateGoldCoroutine());
+            gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         }
 
         IEnumerator GenerateGoldCoroutine()
@@ -27,8 +28,7 @@ namespace Workshop
             while (true)
             {
                 yield return new WaitForSeconds(1f);
-                playerGold += goldPerCycle;
-                Debug.Log("Gold generated! PlayerGold: " + playerGold);
+                gameManager.AddMoney(goldPerCycle);
             }
         }
 
@@ -42,19 +42,13 @@ namespace Workshop
 
         private void UpgradeWorkshop()
         {
-            if (playerGold >= goldPricePerLevel)
+            if (gameManager.GetMoney() >= goldPricePerLevel)
             {
-                playerGold -= goldPricePerLevel;
+                gameManager.RemoveMoney(goldPricePerLevel);
                 level++;
                 goldPerCycle *= 2;
                 goldPricePerLevel *= 2;
-                Debug.Log("Workshop upgraded! New level: " + level);
-            }
-            else
-            {
-                Debug.Log("Not enough gold to upgrade the workshop.");
             }
         }
-
     }
 }
