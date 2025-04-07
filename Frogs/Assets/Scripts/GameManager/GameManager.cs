@@ -14,6 +14,10 @@ public class GameManager : MonoBehaviour
    public void RemoveMoney(int removeAmount){
     Money -= removeAmount;
    }
+   
+   public void MultiplyMoney(float multiplier){
+    Money = (int)(Money * multiplier);
+   }
 
    public int GetMoney(){
     return Money;

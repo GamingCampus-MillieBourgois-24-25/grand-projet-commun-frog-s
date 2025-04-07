@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using MiniGames;
 using UnityEngine;
 
 namespace Workshop
@@ -14,12 +15,14 @@ namespace Workshop
         [SerializeField] protected int goldPerCycle = 1;
         [SerializeField] protected int goldPricePerLevel = 50;
 
-        private GameManager gameManager;
+        [Header("Core Scripts")]
+        [SerializeField] protected BaseMiniGames miniGames;
+        [SerializeField] private GameManager gameManager;
         
-
         protected void Start()
         {
             StartCoroutine(GenerateGoldCoroutine());
+            uniqueId = System.Guid.NewGuid().ToString();
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         }
 
