@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] private GameObject workshopUIManager;
-    [SerializeField] public bool isStartedMiniGame = false;
+    [SerializeField] private bool isStartedMiniGame = false;
 
 
     [Header("Stats")]
@@ -34,11 +34,6 @@ public class GameManager : MonoBehaviour
         Money -= removeAmount;
     }
 
-    public void MultiplyMoney(float multiplier)
-    {
-        Money = (int)(Money * multiplier);
-    }
-
     public void SetGoldMultiplayer(float multiplayer)
     {
         goldMultiplayer = multiplayer;
@@ -58,6 +53,16 @@ public class GameManager : MonoBehaviour
     public float GetGoldMultiplayer()
     {
         return goldMultiplayer;
+    }
+    
+    public void SetIsStartedMiniGame(bool isStarted)
+    {
+        isStartedMiniGame = isStarted;
+    }
+    
+    public bool GetIsStartedMiniGame()
+    {
+        return isStartedMiniGame;
     }
 
     public int GetMoney()

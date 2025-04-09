@@ -19,18 +19,18 @@ namespace MiniGames
 
         protected void Update()
         {
-            if (!gameManager.isStartedMiniGame) return;
+            if (!gameManager.GetIsStartedMiniGame()) return;
 
             if (!hasWin) return;
             ComputeGoldMultiplier();
             hasWin = false;
         }
 
-        protected void ComputeGoldMultiplier()
+        private void ComputeGoldMultiplier()
         {
             gameManager.SetGoldMultiplayer(goldMultiplier);
         }  
-        public void CloseMinigame()
+        public void CloseMiniGame()
         {
             Destroy(gameObject);
         }
