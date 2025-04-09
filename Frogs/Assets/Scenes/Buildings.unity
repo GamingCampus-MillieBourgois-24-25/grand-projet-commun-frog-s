@@ -1132,12 +1132,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingButtonPrefab: {fileID: 4263283525252144029, guid: f9932a3ca32b3d44ca6689475036bd38,
     type: 3}
-  blacksmithPrefab: {fileID: 3489429972677111965, guid: f8abbe5540c86114694d952a0c7e50fa,
-    type: 3}
-  lumberjackPrefab: {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1,
-    type: 3}
-  minerPrefab: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
-    type: 3}
+  workshopNames:
+  - Blacksmith
+  - Lumberjack
+  - Miner
+  workshopPrefabs:
+  - {fileID: 3489429972677111965, guid: f8abbe5540c86114694d952a0c7e50fa, type: 3}
+  - {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1, type: 3}
+  - {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c, type: 3}
   buttonContainer: {fileID: 1513661589}
   panelToSlide: {fileID: 1020666918}
   slideDuration: 1
