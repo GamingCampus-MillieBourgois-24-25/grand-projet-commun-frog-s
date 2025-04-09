@@ -171,10 +171,13 @@ MonoBehaviour:
   level: 1
   goldPerCycle: 1
   goldPricePerLevel: 50
-  miniGame: {fileID: 2617501987657254388, guid: 844d6525e1e2f004794b419a102cd706,
-    type: 3}
   gameManager: {fileID: 0}
   workshopUIManager: {fileID: 0}
+  miniGamePrefab: {fileID: 2617501987657254388, guid: 844d6525e1e2f004794b419a102cd706,
+    type: 3}
+  miniGameScript: {fileID: 0}
+  goldMultiplayer: 1
+  goldTimerMultiplayer: 5
   MinerFrogPrefab: {fileID: 0}
   MinerWorkshopPrefab: {fileID: 0}
   MinerWorkshopUI: {fileID: 0}

@@ -171,9 +171,13 @@ MonoBehaviour:
   level: 1
   goldPerCycle: 1
   goldPricePerLevel: 50
-  miniGame: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
-    type: 3}
   gameManager: {fileID: 0}
+  workshopUIManager: {fileID: 0}
+  miniGamePrefab: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
+    type: 3}
+  miniGameScript: {fileID: 0}
+  goldMultiplayer: 1
+  goldTimerMultiplayer: 5
   lumberjackFrogPrefab: {fileID: 0}
   lumberjackWorkshopPrefab: {fileID: 0}
   lumberjackWorkshopUI: {fileID: 0}

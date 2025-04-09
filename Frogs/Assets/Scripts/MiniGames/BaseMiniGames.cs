@@ -16,23 +16,29 @@ namespace MiniGames
         {
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         }
-
+        
         protected void Update()
         {
-            if (!gameManager.GetIsStartedMiniGame()) return;
-
-            if (!hasWin) return;
-            ComputeGoldMultiplier();
-            hasWin = false;
         }
 
-        private void ComputeGoldMultiplier()
-        {
-            gameManager.SetGoldMultiplayer(goldMultiplier);
-        }  
         public void CloseMiniGame()
         {
             Destroy(gameObject);
+        }
+        
+        public float GetGoldMultiplier()
+        {
+            return goldMultiplier;
+        }
+        
+        public bool GetHasWin()
+        {
+            return hasWin;
+        }
+        
+        public void SetHasWin(bool hasWinSetter)
+        {
+            this.hasWin = hasWin;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Workshop
 
         private new void Start()
         {
-            goldPerCycle = 2;
+            goldPerCycle = 3;
 
             base.Start();
         }

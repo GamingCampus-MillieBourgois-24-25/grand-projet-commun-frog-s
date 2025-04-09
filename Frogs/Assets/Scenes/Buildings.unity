@@ -186,7 +186,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BuildingToPlace
       value: 
-      objectReference: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+      objectReference: {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1,
         type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1067,7 +1067,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workshopUIManager: {fileID: 388310508}
+  isStartedMiniGame: 0
   goldMultiplayer: 1
+  goldTimerMultiplayer: 5
 --- !u!4 &1010563533
 Transform:
   m_ObjectHideFlags: 0

@@ -16,6 +16,7 @@ namespace MiniGames
             
             if (Input.GetKeyDown(KeyCode.G))
             {
+                Debug.Log("G Key Pressed Miner");
                 hasWin = true;
             }
         }

@@ -10,14 +10,7 @@ public class GameManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject workshopUIManager;
     [SerializeField] private bool isStartedMiniGame = false;
-
-
-    [Header("Stats")]
-    [SerializeField] private float goldMultiplayer = 1f;
-    [SerializeField] private float goldTimerMultiplayer = 5f;
-
-    private Coroutine goldMultiplierCoroutine;
-
+    
     private void Start()
     {
         workshopUIManager.SetActive(false);
@@ -25,34 +18,14 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int addAmount)
     {
-        Money += (int)(addAmount * goldMultiplayer);
-        Debug.Log(Money);
+        Debug.Log($"Gold Per Cycle: {addAmount}");
+        Money += addAmount;
+        Debug.Log("Current Money: " + Money);
     }
 
     public void RemoveMoney(int removeAmount)
     {
         Money -= removeAmount;
-    }
-
-    public void SetGoldMultiplayer(float multiplayer)
-    {
-        goldMultiplayer = multiplayer;
-
-        if (goldMultiplierCoroutine != null)
-            StopCoroutine(goldMultiplierCoroutine);
-
-        goldMultiplierCoroutine = StartCoroutine(ResetGoldMultiplierAfterDelay(goldTimerMultiplayer));
-    }
-
-    private IEnumerator ResetGoldMultiplierAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        goldMultiplayer = 1f;
-    }
-
-    public float GetGoldMultiplayer()
-    {
-        return goldMultiplayer;
     }
     
     public void SetIsStartedMiniGame(bool isStarted)
