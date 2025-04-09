@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
 #endif
     }
 
-    // 🖱 Input PC / Éditeur
+    // Input PC / Éditeur
     void HandleMouseInput()
     {
         if (Input.GetMouseButtonDown(0))

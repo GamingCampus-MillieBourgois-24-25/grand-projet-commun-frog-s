@@ -115,8 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d36771b69c68246aa4c588672d7ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingToPlace: {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1,
-    type: 3}
 --- !u!1 &3976098984576022599
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,7 +482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8415343285241798720}
         m_TargetAssemblyTypeName: PlacementPreset, Assembly-CSharp
-        m_MethodName: PlaceBuilding
+        m_MethodName: OpenMarketPlace
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

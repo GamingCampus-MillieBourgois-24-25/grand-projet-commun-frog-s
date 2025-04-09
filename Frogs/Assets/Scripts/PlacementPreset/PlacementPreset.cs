@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class PlacementPreset : MonoBehaviour
 {
-    [SerializeField] private GameObject BuildingToPlace;
-    
-    public void PlaceBuilding(){
-        Debug.Log("Clique");
-        Instantiate(BuildingToPlace, gameObject.transform.position, BuildingToPlace.transform.rotation);
+    public void PlaceBuilding(GameObject prefab)
+    {
+        Instantiate(prefab, transform.position, prefab.transform.rotation);
         Destroy(gameObject);
     }
+
+    public void OpenMarketPlace()
+    {
+        if (MarketplaceUIManager.Instance == null)
+        {
+            Debug.LogError("MarketplaceUIManager.Instance is null! Assure-toi qu’il est présent dans la scène.");
+            return;
+        }
+
+        MarketplaceUIManager.Instance.Open(this);
+    }
+
 }
+
+
