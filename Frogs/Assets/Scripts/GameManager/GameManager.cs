@@ -6,9 +6,13 @@ public class GameManager : MonoBehaviour
 {
    private int Money = 0;
 
-   public void AddMoney(int addAmount){
+    void Start()
+    {
+        InvokeRepeating("TestFrogGeneration", 0f, 1f);
+    }
+
+    public void AddMoney(int addAmount){
     Money += addAmount;
-    Debug.Log(Money);
    }
 
    public void RemoveMoney(int removeAmount){
@@ -17,5 +21,9 @@ public class GameManager : MonoBehaviour
 
    public int GetMoney(){
     return Money;
+   }
+
+   void TestFrogGeneration(){
+      new FrogClass();
    }
 }

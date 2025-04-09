@@ -17,35 +17,44 @@ public class FrogStats
         };
 
         System.Random random = new System.Random();
-        int totalPoints = random.Next(8, 11);
-        int remainingPoints = totalPoints;
+        int totalPoints = random.Next(7, 13);
         int[] points = new int[4];
 
+        // 1. Distribution initiale égale des points
+        int basePoints = totalPoints / points.Length;
         for (int i = 0; i < points.Length; i++)
         {
-            points[i] = random.Next(0, remainingPoints + 1);
-            remainingPoints -= points[i];
+            points[i] = basePoints;
         }
 
-        for (int i = 0; remainingPoints > 0; i = (i + 1) % points.Length)
+        // 2. Répartition des points restants de manière aléatoire mais modérée
+        int remainingPoints = totalPoints - (basePoints * points.Length);
+        while (remainingPoints > 0)
         {
-            points[i]++;
+            // Distribution aléatoire des points restants
+            int randomIndex = random.Next(0, points.Length);
+            
+            // Distribution d'un point supplémentaire à la statistique sélectionnée
+            points[randomIndex]++;
             remainingPoints--;
         }
 
+        // 3. Assigner les points aux statistiques
         StatMap["Strength"] = points[0];
         StatMap["Endurance"] = points[1];
         StatMap["Creativity"] = points[2];
         StatMap["Intelligence"] = points[3];
     }
 
-    public FrogStats(int Strength, int Endurance, int creativite, int Intelligence)
+
+
+    public FrogStats(int Strength, int Endurance, int Creativite, int Intelligence)
     {
         StatMap = new Dictionary<string, int>
         {
             { "Strength", Strength },
             { "Endurance", Endurance },
-            { "Creativity", creativite },
+            { "Creativity", Creativite },
             { "Intelligence", Intelligence }
         };
     }
