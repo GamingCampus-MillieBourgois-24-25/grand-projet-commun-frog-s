@@ -190,7 +190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4345236281448067059}
   - component: {fileID: 3333875457470703376}
-  - component: {fileID: 5876708279249494191}
   m_Layer: 0
   m_Name: MinerBuilding
   m_TagString: Untagged
@@ -262,30 +261,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &5876708279249494191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3489429972677111965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5250822e290dbbe489529e83d9d91ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueId: 
-  level: 1
-  goldPerCycle: 1
-  goldPricePerLevel: 50
-  miniGame: {fileID: 0}
-  gameManager: {fileID: 0}
-  workshopUIManager: {fileID: 0}
-  MinerFrogPrefab: {fileID: 0}
-  MinerWorkshopPrefab: {fileID: 0}
-  MinerWorkshopUI: {fileID: 0}
-  workshopName: Miner
-  workshopDescription: A place to chop wood and gather resources.
 --- !u!1001 &439436504868677825
 PrefabInstance:
   m_ObjectHideFlags: 0

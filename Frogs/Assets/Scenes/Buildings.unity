@@ -182,6 +182,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZonePrefab (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8415343285241798720, guid: 5cfa483e397cfec438a951c29e3b1b5b,
+        type: 3}
+      propertyPath: BuildingToPlace
+      value: 
+      objectReference: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1061,6 +1067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   workshopUIManager: {fileID: 388310508}
+  goldMultiplayer: 1
 --- !u!4 &1010563533
 Transform:
   m_ObjectHideFlags: 0
@@ -1139,6 +1146,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZonePrefab (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8415343285241798720, guid: 5cfa483e397cfec438a951c29e3b1b5b,
+        type: 3}
+      propertyPath: BuildingToPlace
+      value: 
+      objectReference: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1275,6 +1288,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZonePrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 8415343285241798720, guid: 5cfa483e397cfec438a951c29e3b1b5b,
+        type: 3}
+      propertyPath: BuildingToPlace
+      value: 
+      objectReference: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1343,6 +1362,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: ZonePrefab (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8415343285241798720, guid: 5cfa483e397cfec438a951c29e3b1b5b,
+        type: 3}
+      propertyPath: BuildingToPlace
+      value: 
+      objectReference: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

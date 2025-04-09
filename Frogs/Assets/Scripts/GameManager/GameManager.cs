@@ -1,51 +1,82 @@
-using System;
+using NUnit.Framework.Constraints;
 using System.Collections;
-using System.Collections.Generic;
-using MiniGames;
 using UI;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.Serialization;
 
 public class GameManager : MonoBehaviour
 {
-   private int Money = 0;
+    private int Money = 1;
 
-   [Header("UI")]
-   [SerializeField] private GameObject workshopUIManager;
+    [Header("UI")]
+    [SerializeField] private GameObject workshopUIManager;
+    [SerializeField] public bool isStartedMiniGame = false;
 
-   private void Start()
-   {
-       workshopUIManager.SetActive(false);
-   }
 
-   public void AddMoney(int addAmount){
-    Money += addAmount;
-    //Debug.Log(Money);
-   }
+    [Header("Stats")]
+    [SerializeField] private float goldMultiplayer = 1f;
+    [SerializeField] private float goldTimerMultiplayer = 5f;
 
-   public void RemoveMoney(int removeAmount){
-    Money -= removeAmount;
-   }
-   
-   public void MultiplyMoney(float multiplier){
-    Money = (int)(Money * multiplier);
-   }
+    private Coroutine goldMultiplierCoroutine;
 
-   public int GetMoney(){
-    return Money;
-   }
-   
-   public WorkshopUIManager GetWorkshopUIManger(){
-      return workshopUIManager.GetComponent<WorkshopUIManager>();
-   }
-   
-   public void ShowWorkshopUI_Manager(){
-      workshopUIManager.SetActive(true);
-   }
-   
-   public void HideWorkshopUI_Manager(){
-      workshopUIManager.SetActive(false);
-   }
-   
+    private void Start()
+    {
+        workshopUIManager.SetActive(false);
+    }
+
+    public void AddMoney(int addAmount)
+    {
+        Money += (int)(addAmount * goldMultiplayer);
+        Debug.Log(Money);
+    }
+
+    public void RemoveMoney(int removeAmount)
+    {
+        Money -= removeAmount;
+    }
+
+    public void MultiplyMoney(float multiplier)
+    {
+        Money = (int)(Money * multiplier);
+    }
+
+    public void SetGoldMultiplayer(float multiplayer)
+    {
+        goldMultiplayer = multiplayer;
+
+        if (goldMultiplierCoroutine != null)
+            StopCoroutine(goldMultiplierCoroutine);
+
+        goldMultiplierCoroutine = StartCoroutine(ResetGoldMultiplierAfterDelay(goldTimerMultiplayer));
+    }
+
+    private IEnumerator ResetGoldMultiplierAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        goldMultiplayer = 1f;
+    }
+
+    public float GetGoldMultiplayer()
+    {
+        return goldMultiplayer;
+    }
+
+    public int GetMoney()
+    {
+        return Money;
+    }
+
+    public WorkshopUIManager GetWorkshopUIManger()
+    {
+        return workshopUIManager.GetComponent<WorkshopUIManager>();
+    }
+
+    public void ShowWorkshopUI_Manager()
+    {
+        workshopUIManager.SetActive(true);
+    }
+
+    public void HideWorkshopUI_Manager()
+    {
+        workshopUIManager.SetActive(false);
+    }
 }

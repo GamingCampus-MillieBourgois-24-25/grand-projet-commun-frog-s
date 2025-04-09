@@ -21,6 +21,7 @@ namespace UI
             GameObject miniGameInstance = Instantiate(miniGame, canvasContainer.transform);
             miniGames.Add(miniGameInstance);
             gameManager.HideWorkshopUI_Manager();
+            gameManager.isStartedMiniGame = true;
         }
         
         public void SetMiniGame(GameObject miniGameToSet)

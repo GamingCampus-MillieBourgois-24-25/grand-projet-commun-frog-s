@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace MiniGames
@@ -18,6 +19,8 @@ namespace MiniGames
 
         protected void Update()
         {
+            if (!gameManager.isStartedMiniGame) return;
+
             if (!hasWin) return;
             ComputeGoldMultiplier();
             hasWin = false;
@@ -25,10 +28,11 @@ namespace MiniGames
 
         protected void ComputeGoldMultiplier()
         {
-            gameManager.MultiplyMoney(goldMultiplier);
+            gameManager.SetGoldMultiplayer(goldMultiplier);
+        }  
+        public void CloseMinigame()
+        {
+            Destroy(gameObject);
         }
-        
-        public void PlayMiniGame(){}
-        
     }
 }
