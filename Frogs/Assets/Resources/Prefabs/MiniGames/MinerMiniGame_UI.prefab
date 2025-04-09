@@ -147,9 +147,9 @@ GameObject:
   - component: {fileID: 4534923601203946359}
   - component: {fileID: 4631092752075112587}
   - component: {fileID: 954422225955246974}
-  - component: {fileID: 4944991842750794082}
+  - component: {fileID: 1217045032758605783}
   m_Layer: 5
-  m_Name: Lumberjack_MiniGame_UI
+  m_Name: MinerMiniGame_UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4944991842750794082
+--- !u!114 &1217045032758605783
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,7 +222,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2617501987657254388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a66e9a787176524fae17d6fa5de4614, type: 3}
+  m_Script: {fileID: 11500000, guid: f5e6b502e08dc404b80b635bd391b56a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   goldMultiplier: 1
