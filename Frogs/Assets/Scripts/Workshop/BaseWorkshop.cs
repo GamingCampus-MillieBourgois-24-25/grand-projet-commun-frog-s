@@ -30,7 +30,7 @@ namespace Workshop
         {
             StartCoroutine(GenerateGoldCoroutine());
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-            workshopUIManager = GameObject.FindGameObjectWithTag("WorkshopUIManager").GetComponent<WorkshopUIManager>();
+            workshopUIManager = gameManager.GetWorkshopUIManger();
         }
 
         IEnumerator GenerateGoldCoroutine()
@@ -45,6 +45,7 @@ namespace Workshop
         protected void OnMouseDown()
         {
             gameManager.ShowWorkshopUI_Manager();
+            workshopUIManager.SetMiniGame(miniGame);
         }
 
         protected void Update()

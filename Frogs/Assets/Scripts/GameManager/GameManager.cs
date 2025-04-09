@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using MiniGames;
+using UI;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Serialization;
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
 
    public void AddMoney(int addAmount){
     Money += addAmount;
-    Debug.Log(Money);
+    //Debug.Log(Money);
    }
 
    public void RemoveMoney(int removeAmount){
@@ -33,6 +34,10 @@ public class GameManager : MonoBehaviour
 
    public int GetMoney(){
     return Money;
+   }
+   
+   public WorkshopUIManager GetWorkshopUIManger(){
+      return workshopUIManager.GetComponent<WorkshopUIManager>();
    }
    
    public void ShowWorkshopUI_Manager(){

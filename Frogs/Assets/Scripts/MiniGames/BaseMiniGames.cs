@@ -28,5 +28,7 @@ namespace MiniGames
             gameManager.MultiplyMoney(goldMultiplier);
         }
         
+        public void PlayMiniGame(){}
+        
     }
 }
