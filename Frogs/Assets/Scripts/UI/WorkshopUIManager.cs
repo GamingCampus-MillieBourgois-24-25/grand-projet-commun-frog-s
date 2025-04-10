@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using MiniGames;
 using UnityEngine;
 using UnityEngine.Events;
+using Workshop;
 
 namespace UI
 {
@@ -14,25 +15,34 @@ namespace UI
         [SerializeField] private GameObject canvasContainer;
         
         [Header("MiniGames")]
-        [SerializeField] private List<GameObject> miniGames = new List<GameObject>();
-        [SerializeField] private GameObject miniGame;
+        [SerializeField] private GameObject miniGamePrefab;
         [SerializeField] private GameObject currentMiniGame;
 
         private UnityEvent<BaseMiniGames> onMiniGameCreated = new UnityEvent<BaseMiniGames>();
+        private BaseWorkshop activeWorkshop;
         
         public void OpenMiniGame()
         {
-            currentMiniGame = Instantiate(miniGame, canvasContainer.transform);
-            miniGames.Add(currentMiniGame);
+            currentMiniGame = Instantiate(miniGamePrefab, canvasContainer.transform);
             gameManager.HideWorkshopUI_Manager();
             gameManager.SetIsStartedMiniGame(true);
-            
+
             onMiniGameCreated?.Invoke(currentMiniGame.GetComponent<BaseMiniGames>());
         }
         
-        public void SetMiniGame(GameObject miniGameToSet)
+        public void SetMiniGamePrefab(GameObject miniGameToSet)
         {
-            this.miniGame = miniGameToSet;
+            miniGamePrefab = miniGameToSet;
+        }
+        
+        public void SetActiveWorkshop(BaseWorkshop workshop)
+        {
+            activeWorkshop = workshop;
+        }
+
+        public BaseWorkshop GetActiveWorkshop()
+        {
+            return activeWorkshop;
         }
         
         public UnityEvent<BaseMiniGames> GetOnMiniGameCreated()

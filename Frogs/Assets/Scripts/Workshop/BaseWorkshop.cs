@@ -1,10 +1,27 @@
 using System.Collections;
+using System.Linq;
 using MiniGames;
 using UI;
 using UnityEngine;
 
 namespace Workshop
 {
+    public enum WorkshopType
+    {
+        Florist,
+        Miner,
+        Baker,
+        Lumberjack,
+        Artist,
+        Farmer,
+        Writer,
+        Fisher,
+        Blacksmith,
+        Cobbler,
+        Alchemist,
+        Jeweler 
+    }
+    
     public class BaseWorkshop : MonoBehaviour
     {
         [Header("Base Workshop Settings")]
@@ -13,17 +30,19 @@ namespace Workshop
 
         [Header("Base Workshop Stats")]
         [SerializeField] protected int level = 1;
-        [SerializeField] protected int baseGoldPerCycle = 1;
-        [SerializeField] protected int goldPerCycle = 1;
-        [SerializeField] protected int goldPricePerLevel = 50;
+        public int baseGoldPerCycle = 1;
+        public int goldPerCycle = 1;
+        public int goldPricePerLevel = 50;
+        public WorkshopType workshopType;
 
         [Header("Core")]
         [SerializeField] private GameManager gameManager;
         [SerializeField] private WorkshopUIManager workshopUIManager;
         [SerializeField] protected GameObject miniGamePrefab;
         [SerializeField] protected BaseMiniGames miniGameScript;
-        [SerializeField] private float goldMultiplayer = 1f;
-        [SerializeField] private float goldTimerMultiplayer = 5f;
+        public float goldMultiplayer = 1f;
+        public float goldTimerMultiplayer = 5f;
+        public bool hasWonMiniGame= false;
 
         private Coroutine _goldMultiplierCoroutine;
         
@@ -37,16 +56,16 @@ namespace Workshop
             StartCoroutine(GenerateGoldCoroutine());
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
             workshopUIManager = gameManager.GetWorkshopUIManger();
-            miniGameScript = miniGamePrefab.GetComponent<BaseMiniGames>();
             workshopUIManager.GetOnMiniGameCreated().AddListener(OnMiniGameCreated);
         }
         
         protected void Update()
         {
-            if (miniGameScript.GetHasWin())
+            if (!miniGameScript) return;
+            if (miniGameScript.GetHasWin() && !hasWonMiniGame)
             {
                 StartGoldMultiplayer();
-                miniGameScript.SetHasWin(false);
+                hasWonMiniGame= true;
             }
             
             if (Input.GetKeyDown(KeyCode.U))
@@ -58,20 +77,27 @@ namespace Workshop
         protected void OnMouseDown()
         {
             gameManager.ShowWorkshopUI_Manager();
-            workshopUIManager.SetMiniGame(miniGamePrefab);
+            workshopUIManager.SetMiniGamePrefab(miniGamePrefab);
+            workshopUIManager.SetActiveWorkshop(this);
         }
         
         private void OnMiniGameCreated(BaseMiniGames miniGame)
         {
+            if (workshopType != workshopUIManager.GetActiveWorkshop().workshopType)
+            {
+                return;
+            }
+            
+            Debug.Log("MiniGame Created: " + miniGame.gameObject.name);
             miniGameScript = miniGame;
             miniGameScript.SetHasWin(false);
         }
 
         private void UpgradeWorkshop()
         {
-            if (gameManager.GetMoney() >= goldPricePerLevel)
+            if (gameManager.GetGolds() >= goldPricePerLevel)
             {
-                gameManager.RemoveMoney(goldPricePerLevel);
+                gameManager.RemoveGolds(goldPricePerLevel);
                 level++;
                 baseGoldPerCycle *= 2;
                 goldPricePerLevel *= 2;
@@ -100,7 +126,6 @@ namespace Workshop
             {
                 yield return new WaitForSeconds(1f);
                 int currentGoldPerCycle = (int)(baseGoldPerCycle * goldMultiplayer);
-                Debug.Log("Current Gold Per Cycle: " + currentGoldPerCycle);
                 gameManager.AddMoney(currentGoldPerCycle);
             }
         }
@@ -109,6 +134,7 @@ namespace Workshop
         {
             yield return new WaitForSeconds(delay);
             goldMultiplayer = 1f;
+            hasWonMiniGame= false;
         }
         
     }

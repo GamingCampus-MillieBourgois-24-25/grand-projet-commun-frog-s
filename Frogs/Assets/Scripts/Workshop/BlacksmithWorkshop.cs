@@ -17,6 +17,8 @@ namespace Workshop
         private new void Start()
         {
             SetGoldCycle(2);
+            workshopType = WorkshopType.Blacksmith;
+            
             base.Start();
         }
 

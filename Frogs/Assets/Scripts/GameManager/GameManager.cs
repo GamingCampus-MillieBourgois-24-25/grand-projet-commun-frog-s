@@ -1,15 +1,18 @@
 using NUnit.Framework.Constraints;
 using System.Collections;
+using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int Money = 1;
-
     [Header("UI")]
     [SerializeField] private GameObject workshopUIManager;
     [SerializeField] private bool isStartedMiniGame = false;
+
+    [Header("Player")]
+    [SerializeField] private int golds;
+    [SerializeField] private int diamonds;
     
     private void Start()
     {
@@ -18,13 +21,35 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int addAmount)
     {
-        Money += addAmount;
-        Debug.Log("Current Money: " + Money);
+        Debug.Log("Current gold per cycle: " + addAmount);
+        golds += addAmount;
+        Debug.Log("Current golds: " + golds);
     }
 
-    public void RemoveMoney(int removeAmount)
+    public void RemoveGolds(int removeAmount)
     {
-        Money -= removeAmount;
+        golds -= removeAmount;
+    }
+    
+    public int GetGolds()
+    {
+        return golds;
+    }
+    
+    public void AddDiamonds(int addAmount)
+    {
+        diamonds += addAmount;
+        Debug.Log("Current diamonds: " + diamonds);
+    }
+    
+    public void RemoveDiamonds(int removeAmount)
+    {
+        diamonds -= removeAmount;
+    }
+    
+    public int GetDiamonds()
+    {
+        return diamonds;
     }
     
     public void SetIsStartedMiniGame(bool isStarted)
@@ -35,11 +60,6 @@ public class GameManager : MonoBehaviour
     public bool GetIsStartedMiniGame()
     {
         return isStartedMiniGame;
-    }
-
-    public int GetMoney()
-    {
-        return Money;
     }
 
     public WorkshopUIManager GetWorkshopUIManger()

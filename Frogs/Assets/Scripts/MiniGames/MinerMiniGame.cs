@@ -6,7 +6,7 @@ namespace MiniGames
     {
         private new void Start()
         {
-            goldMultiplier = 1.5f;
+            GoldMultiplier = 3f;
             base.Start();
         }
 
@@ -17,7 +17,7 @@ namespace MiniGames
             if (Input.GetKeyDown(KeyCode.G))
             {
                 Debug.Log("G Key Pressed Miner");
-                hasWin = true;
+                HasWin = true;
             }
         }
     }

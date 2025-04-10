@@ -6,8 +6,8 @@ namespace MiniGames
     public class BaseMiniGames : MonoBehaviour
     {
         [Header("Base Mini Game Settings")]
-        [SerializeField] protected float goldMultiplier = 1.0f;
-        [SerializeField] protected bool hasWin = false;
+        protected float GoldMultiplier = 1.0f;
+        protected bool HasWin;
         
         [Header("Core Scripts")]
         [SerializeField] private GameManager gameManager;
@@ -28,17 +28,17 @@ namespace MiniGames
         
         public float GetGoldMultiplier()
         {
-            return goldMultiplier;
+            return GoldMultiplier;
         }
         
         public bool GetHasWin()
         {
-            return hasWin;
+            return HasWin;
         }
         
         public void SetHasWin(bool hasWinSetter)
         {
-            hasWin = hasWinSetter;
+            HasWin = hasWinSetter;
         }
     }
 }

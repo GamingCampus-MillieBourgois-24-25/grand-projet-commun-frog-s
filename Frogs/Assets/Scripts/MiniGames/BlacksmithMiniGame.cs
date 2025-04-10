@@ -6,7 +6,7 @@ namespace MiniGames
     {
         private new void Start()
         {
-            goldMultiplier = 1.5f;
+            GoldMultiplier = 1.5f;
             base.Start();
         }
 
@@ -16,7 +16,7 @@ namespace MiniGames
             
             if (Input.GetKeyDown(KeyCode.G))
             {
-                hasWin = true;
+                HasWin = true;
             }
         }
         

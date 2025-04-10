@@ -16,6 +16,7 @@ namespace Workshop
         private new void Start()
         {
             SetGoldCycle(3);
+            workshopType = WorkshopType.Lumberjack;
 
             base.Start();
         }
