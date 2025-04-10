@@ -26,6 +26,7 @@ public class MarketplaceUIManager : MonoBehaviour
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float targetHeight = 300f;
 
+
     private PlacementPreset currentPlacement;
 
     void Awake()
@@ -45,29 +46,6 @@ public class MarketplaceUIManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void Update()
-    {
-        if (!gameObject.activeSelf) return;
-
-#if UNITY_EDITOR || UNITY_STANDALONE
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (!RectTransformUtility.RectangleContainsScreenPoint(panelToSlide, Input.mousePosition, Camera.main))
-            {
-                Close();
-            }
-        }
-#else
-    if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
-    {
-        Vector2 touchPos = Input.GetTouch(0).position;
-        if (!RectTransformUtility.RectangleContainsScreenPoint(panelToSlide, touchPos, Camera.main))
-        {
-            Close();
-        }
-    }
-#endif
-    }
 
 
     public void Open(PlacementPreset placement)
