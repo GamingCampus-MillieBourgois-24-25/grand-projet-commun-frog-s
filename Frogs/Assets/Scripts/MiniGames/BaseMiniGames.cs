@@ -38,7 +38,7 @@ namespace MiniGames
         
         public void SetHasWin(bool hasWinSetter)
         {
-            this.hasWin = hasWin;
+            hasWin = hasWinSetter;
         }
     }
 }

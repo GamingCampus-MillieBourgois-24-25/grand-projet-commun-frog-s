@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int addAmount)
     {
-        Debug.Log($"Gold Per Cycle: {addAmount}");
         Money += addAmount;
         Debug.Log("Current Money: " + Money);
     }

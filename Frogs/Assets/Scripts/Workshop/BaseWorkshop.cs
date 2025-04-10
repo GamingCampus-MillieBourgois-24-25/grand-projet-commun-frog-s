@@ -13,6 +13,7 @@ namespace Workshop
 
         [Header("Base Workshop Stats")]
         [SerializeField] protected int level = 1;
+        [SerializeField] protected int baseGoldPerCycle = 1;
         [SerializeField] protected int goldPerCycle = 1;
         [SerializeField] protected int goldPricePerLevel = 50;
 
@@ -42,11 +43,6 @@ namespace Workshop
         
         protected void Update()
         {
-            goldPerCycle = (int)(goldPerCycle * goldMultiplayer);
-            
-            Debug.Log("miniGameScript.GetHasWin(): " + miniGameScript.GetHasWin());
-            Debug.Log("miniGameScript.GetGoldMultiplier(): " + miniGameScript.GetGoldMultiplier());
-
             if (miniGameScript.GetHasWin())
             {
                 StartGoldMultiplayer();
@@ -77,7 +73,7 @@ namespace Workshop
             {
                 gameManager.RemoveMoney(goldPricePerLevel);
                 level++;
-                goldPerCycle *= 2;
+                baseGoldPerCycle *= 2;
                 goldPricePerLevel *= 2;
             }
         }
@@ -92,12 +88,20 @@ namespace Workshop
             _goldMultiplierCoroutine = StartCoroutine(ResetGoldMultiplierAfterDelay(goldTimerMultiplayer));
         }
         
+        protected void SetGoldCycle(int goldCycle)
+        {
+            goldPerCycle = goldCycle;
+            baseGoldPerCycle = goldPerCycle;
+        }
+        
         IEnumerator GenerateGoldCoroutine()
         {
             while (true)
             {
                 yield return new WaitForSeconds(1f);
-                gameManager.AddMoney(goldPerCycle);
+                int currentGoldPerCycle = (int)(baseGoldPerCycle * goldMultiplayer);
+                Debug.Log("Current Gold Per Cycle: " + currentGoldPerCycle);
+                gameManager.AddMoney(currentGoldPerCycle);
             }
         }
         
