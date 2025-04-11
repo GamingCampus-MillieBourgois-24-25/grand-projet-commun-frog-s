@@ -1,8 +1,12 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CanvasActivator : MonoBehaviour
 {
-    [SerializeField] private GameObject canvasToActivate; 
+    public GameObject canvasToActivate; 
 
     public void ActivateCanvas()
     {
