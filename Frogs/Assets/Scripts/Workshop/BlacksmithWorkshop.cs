@@ -14,13 +14,15 @@ namespace Workshop
         [SerializeField] private string workshopName = "Blacksmith";
         [SerializeField] private string workshopDescription = "A place to forge weapons and armor.";
 
-        new void Start()
+        private new void Start()
         {
-            goldPerCycle = 2;
+            SetGoldCycle(2);
+            workshopType = WorkshopType.Blacksmith;
+            
             base.Start();
         }
 
-        void Update()
+        private new void Update()
         {
             base.Update();
         }
