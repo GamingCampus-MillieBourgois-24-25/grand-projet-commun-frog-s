@@ -809,8 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 1010563532}
   canvasContainer: {fileID: 181403087}
-  miniGames: []
-  miniGame: {fileID: 0}
+  miniGamePrefab: {fileID: 0}
+  currentMiniGame: {fileID: 0}
 --- !u!1 &661063367
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,8 +1141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   workshopUIManager: {fileID: 388310508}
   isStartedMiniGame: 0
-  goldMultiplayer: 1
-  goldTimerMultiplayer: 5
+  golds: 0
+  diamonds: 0
 --- !u!4 &1010563533
 Transform:
   m_ObjectHideFlags: 0
@@ -2188,8 +2188,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1557530422}
   m_HandleRect: {fileID: 1557530421}
   m_Direction: 0
-  m_Value: -0.0000004245925
-  m_Size: 0.31962553
+  m_Value: -0.00000042459257
+  m_Size: 0.31954008
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
