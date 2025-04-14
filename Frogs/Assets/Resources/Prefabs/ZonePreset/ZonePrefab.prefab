@@ -115,8 +115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d36771b69c68246aa4c588672d7ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildingToPlace: {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1,
-    type: 3}
 --- !u!1 &3976098984576022599
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,8 +395,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: 0, y: 0.14}
+  m_SizeDelta: {x: 100, y: 99.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1084855392387988014
 CanvasRenderer:
@@ -484,7 +482,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8415343285241798720}
         m_TargetAssemblyTypeName: PlacementPreset, Assembly-CSharp
-        m_MethodName: PlaceBuilding
+        m_MethodName: OpenMarketPlace
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
