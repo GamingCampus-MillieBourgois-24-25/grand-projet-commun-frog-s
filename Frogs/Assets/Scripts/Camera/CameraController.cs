@@ -35,6 +35,9 @@ public class CameraController : MonoBehaviour
     // Input PC / Éditeur
     void HandleMouseInput()
     {
+        if (IsPointerOverUI())
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             lastPanPosition = Input.mousePosition;
@@ -60,6 +63,9 @@ public class CameraController : MonoBehaviour
     // 📱 Input Mobile
     void HandleTouchInput()
     {
+        if (IsPointerOverUI())
+            return;
+
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -125,7 +131,6 @@ public class CameraController : MonoBehaviour
     }
 
 
-
     // void ZoomCamera(float delta)
     // {
     //     float newSize = cam.orthographic ? cam.orthographicSize + delta : cam.transform.position.y + delta;
@@ -145,14 +150,25 @@ public class CameraController : MonoBehaviour
     // }
 
     void ZoomCamera(float delta)
-{
-    float newFOV = cam.fieldOfView + delta;
+    {
+        float newFOV = cam.fieldOfView + delta;
 
-    // Limiter la valeur du FOV dans une plage spécifiée
-    newFOV = Mathf.Clamp(newFOV, minZoom, maxZoom);
+        // Limiter la valeur du FOV dans une plage spécifiée
+        newFOV = Mathf.Clamp(newFOV, minZoom, maxZoom);
 
-    // Appliquer le nouveau FOV à la caméra
-    cam.fieldOfView = newFOV;
-}
+        // Appliquer le nouveau FOV à la caméra
+        cam.fieldOfView = newFOV;
+    }
+
+    bool IsPointerOverUI()
+    {
+#if UNITY_EDITOR || UNITY_STANDALONE
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+#else
+    if (Input.touchCount > 0)
+        return EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId);
+    return false;
+#endif
+    }
 
 }
