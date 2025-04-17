@@ -9,6 +9,6 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        moneyText.text = gameManager.GetMoney().ToString();
+        moneyText.text = gameManager.GetGolds().ToString();
     }
 }

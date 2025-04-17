@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Workshop;
 
-
 public class MarketplaceUIManager : MonoBehaviour
 {
     [Header("Bouton Prefab")]
@@ -17,7 +16,8 @@ public class MarketplaceUIManager : MonoBehaviour
     [Header("Prefabs des Ateliers")]
     [SerializeField] private List<GameObject> workshopPrefabs = new List<GameObject>();
 
-    public static MarketplaceUIManager Instance { get; private set; }
+    [Header("Prix UI")]
+    [SerializeField] private TextMeshProUGUI currentPriceText;
 
     [Header("Parent des boutons")]
     [SerializeField] private Transform buttonContainer;
@@ -27,8 +27,11 @@ public class MarketplaceUIManager : MonoBehaviour
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float targetHeight = 300f;
 
+    public static MarketplaceUIManager Instance { get; private set; }
 
     private PlacementPreset currentPlacement;
+    private int currentGlobalPrice = 10;
+    private List<Button> instantiatedButtons = new List<Button>();
 
     void Awake()
     {
@@ -39,15 +42,18 @@ public class MarketplaceUIManager : MonoBehaviour
         }
 
         Instance = this;
-        Debug.Log("MarketplaceUIManager initialized");
     }
 
     void Start()
     {
         gameObject.SetActive(false);
+        UpdatePriceUI();
     }
 
-
+    void Update()
+    {
+        UpdateButtonsInteractable();
+    }
 
     public void Open(PlacementPreset placement)
     {
@@ -55,6 +61,7 @@ public class MarketplaceUIManager : MonoBehaviour
 
         foreach (Transform child in buttonContainer)
             Destroy(child.gameObject);
+        instantiatedButtons.Clear();
 
         for (int i = 0; i < Mathf.Min(workshopNames.Count, workshopPrefabs.Count); i++)
         {
@@ -63,18 +70,57 @@ public class MarketplaceUIManager : MonoBehaviour
 
         gameObject.SetActive(true);
         StartCoroutine(SlideUp());
-        //PlayPopScale(); // si tu veux ajouter l'effet "pop"
     }
 
     void AddButton(string label, GameObject prefab)
     {
         var buttonObj = Instantiate(buildingButtonPrefab, buttonContainer);
         buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = label;
-        buttonObj.GetComponent<Button>().onClick.AddListener(() =>
+
+        var button = buttonObj.GetComponent<Button>();
+        instantiatedButtons.Add(button);
+
+        button.onClick.AddListener(() =>
         {
-            currentPlacement.PlaceBuilding(prefab);
-            gameObject.SetActive(false);
+            if (GameManagerInstance().GetGolds() >= currentGlobalPrice)
+            {
+                GameManagerInstance().RemoveGolds(currentGlobalPrice);
+                currentGlobalPrice *= 5;
+                UpdatePriceUI();
+                UpdateButtonsInteractable();
+                currentPlacement.PlaceBuilding(prefab);
+                gameObject.SetActive(false);
+            }
         });
+
+        UpdateButtonsInteractable();
+    }
+
+    void UpdateButtonsInteractable()
+    {
+        int gold = GameManagerInstance().GetGolds();
+
+        foreach (var btn in instantiatedButtons)
+        {
+            btn.interactable = gold >= currentGlobalPrice;
+
+            var colors = btn.colors;
+            colors.normalColor = gold >= currentGlobalPrice ? Color.white : Color.gray;
+            btn.colors = colors;
+        }
+    }
+
+    void UpdatePriceUI()
+    {
+        if (currentPriceText != null)
+        {
+            currentPriceText.text = $"{currentGlobalPrice}G";
+        }
+    }
+
+    GameManager GameManagerInstance()
+    {
+        return FindObjectOfType<GameManager>();
     }
 
     IEnumerator SlideUp()
@@ -118,6 +164,8 @@ public class MarketplaceUIManager : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
+
+
 
 
 

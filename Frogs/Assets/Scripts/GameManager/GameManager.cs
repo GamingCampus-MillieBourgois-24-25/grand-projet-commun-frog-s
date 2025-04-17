@@ -1,4 +1,3 @@
-using NUnit.Framework.Constraints;
 using System.Collections;
 using System.Collections.Generic;
 using UI;
@@ -13,50 +12,57 @@ public class GameManager : MonoBehaviour
     [Header("Player")]
     [SerializeField] private int golds;
     [SerializeField] private int diamonds;
-    
+
     private void Start()
     {
         workshopUIManager.SetActive(false);
+        StartCoroutine(GeneratePassiveGold());
+    }
+
+    IEnumerator GeneratePassiveGold()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.7f);
+            AddMoney(1);
+        }
     }
 
     public void AddMoney(int addAmount)
     {
-        Debug.Log("Current gold per cycle: " + addAmount);
         golds += addAmount;
-        Debug.Log("Current golds: " + golds);
     }
 
     public void RemoveGolds(int removeAmount)
     {
         golds -= removeAmount;
     }
-    
+
     public int GetGolds()
     {
         return golds;
     }
-    
+
     public void AddDiamonds(int addAmount)
     {
         diamonds += addAmount;
-        Debug.Log("Current diamonds: " + diamonds);
     }
-    
+
     public void RemoveDiamonds(int removeAmount)
     {
         diamonds -= removeAmount;
     }
-    
+
     public int GetDiamonds()
     {
         return diamonds;
     }
-    
+
     public void SetIsStartedMiniGame(bool isStarted)
     {
         isStartedMiniGame = isStarted;
     }
-    
+
     public bool GetIsStartedMiniGame()
     {
         return isStartedMiniGame;
