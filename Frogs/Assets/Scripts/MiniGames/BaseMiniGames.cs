@@ -10,7 +10,7 @@ namespace MiniGames
         protected bool HasWin;
         
         [Header("Core Scripts")]
-        [SerializeField] private GameManager gameManager;
+        [SerializeField] protected GameManager gameManager;
 
         protected void Start()
         {
