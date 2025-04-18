@@ -14,6 +14,9 @@ public class SettingsManager : MonoBehaviour
     public AudioMixer mainAudioMixer;
     public Toggle vibrateToggle;
 
+    private const float clampThreshold = -80f;
+    private const float muteDb = -1000f;
+
     public void ChangeGraphicsQuality()
     {
         QualitySettings.SetQualityLevel(graphicsDropdown.value);
@@ -21,33 +24,38 @@ public class SettingsManager : MonoBehaviour
 
     public void ChangeMasterVolume()
     {
-        mainAudioMixer.SetFloat("MasterVol", masterVol.value);
+        ApplyVolume("MasterVol", masterVol.value);
     }
 
     public void ChangeMusicVolume()
     {
-        mainAudioMixer.SetFloat("MusicVol", musicVol.value);
+        ApplyVolume("MusicVol", musicVol.value);
     }
 
     public void ChangeSfxVolume()
     {
-        mainAudioMixer.SetFloat("SfxVol", sfxVol.value);
+        ApplyVolume("SfxVol", sfxVol.value);
+    }
+
+    private void ApplyVolume(string parameter, float sliderValue)
+    {
+        // Si le slider descend à –80 dB ou moins, on mute à –1000 dB
+        float db = sliderValue <= clampThreshold ? muteDb : sliderValue;
+        mainAudioMixer.SetFloat(parameter, db);
     }
 
     public void ChangeVibrate()
     {
-        isVibrate = vibrateToggle;
+        isVibrate = vibrateToggle.isOn;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         isVibrate = true;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Initialiser sliders sur les valeurs actuelles du mixer (optionnel)
+        if (mainAudioMixer.GetFloat("MasterVol", out float mv)) masterVol.value = mv;
+        if (mainAudioMixer.GetFloat("MusicVol", out float musv)) musicVol.value = musv;
+        if (mainAudioMixer.GetFloat("SfxVol", out float sfxv)) sfxVol.value = sfxv;
     }
 }
