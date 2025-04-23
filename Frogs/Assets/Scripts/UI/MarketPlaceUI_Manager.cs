@@ -13,6 +13,9 @@ public class MarketplaceUIManager : MonoBehaviour
     [Header("Noms des Ateliers")]
     [SerializeField] private List<string> workshopNames = new List<string>();
 
+    [Header("Sprites des bâtiments")]
+    [SerializeField] private List<Sprite> buildingIcons = new List<Sprite>();
+
     [Header("Prefabs des Ateliers")]
     [SerializeField] private List<GameObject> workshopPrefabs = new List<GameObject>();
 
@@ -75,7 +78,12 @@ public class MarketplaceUIManager : MonoBehaviour
     void AddButton(string label, GameObject prefab)
     {
         var buttonObj = Instantiate(buildingButtonPrefab, buttonContainer);
-        buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = label;
+        //buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = label;
+
+        var image = buttonObj.GetComponentInChildren<Image>();
+        int index = instantiatedButtons.Count;
+        if (image != null && index < buildingIcons.Count)
+            image.sprite = buildingIcons[index];
 
         var button = buttonObj.GetComponent<Button>();
         instantiatedButtons.Add(button);
@@ -95,6 +103,7 @@ public class MarketplaceUIManager : MonoBehaviour
 
         UpdateButtonsInteractable();
     }
+
 
     void UpdateButtonsInteractable()
     {
@@ -127,18 +136,23 @@ public class MarketplaceUIManager : MonoBehaviour
     {
         RectTransform rt = panelToSlide;
         float elapsed = 0f;
-        float startHeight = 0f;
+        float startY = -targetHeight;  // départ en dessous de l’écran
+        float targetY = 0f;
+
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, startY);
+        rt.sizeDelta = new Vector2(rt.sizeDelta.x, targetHeight);
 
         while (elapsed < slideDuration)
         {
             elapsed += Time.deltaTime;
-            float newHeight = Mathf.SmoothStep(startHeight, targetHeight, elapsed / slideDuration);
-            rt.sizeDelta = new Vector2(rt.sizeDelta.x, newHeight);
+            float y = Mathf.SmoothStep(startY, targetY, elapsed / slideDuration);
+            rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, y);
             yield return null;
         }
 
-        rt.sizeDelta = new Vector2(rt.sizeDelta.x, targetHeight);
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, targetY);
     }
+
 
     public void Close()
     {
@@ -149,20 +163,21 @@ public class MarketplaceUIManager : MonoBehaviour
     {
         RectTransform rt = panelToSlide;
         float elapsed = 0f;
-        float startHeight = rt.sizeDelta.y;
-        float endHeight = 0f;
+        float startY = rt.anchoredPosition.y;
+        float endY = -targetHeight;
 
         while (elapsed < slideDuration)
         {
             elapsed += Time.deltaTime;
-            float newHeight = Mathf.SmoothStep(startHeight, endHeight, elapsed / slideDuration);
-            rt.sizeDelta = new Vector2(rt.sizeDelta.x, newHeight);
+            float y = Mathf.SmoothStep(startY, endY, elapsed / slideDuration);
+            rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, y);
             yield return null;
         }
 
-        rt.sizeDelta = new Vector2(rt.sizeDelta.x, 0);
+        rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, endY);
         gameObject.SetActive(false);
     }
+
 }
 
 
