@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 8797743156734309381}
   - component: {fileID: 6470668349743585293}
   - component: {fileID: 8746319136751832159}
-  - component: {fileID: 5496370112625462715}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -153,36 +152,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5496370112625462715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798940524206859699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5250822e290dbbe489529e83d9d91ebc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueId: 
-  level: 1
-  baseGoldPerCycle: 1
-  goldPerCycle: 1
-  goldPricePerLevel: 50
-  workshopType: 0
-  gameManager: {fileID: 0}
-  workshopUIManager: {fileID: 0}
-  miniGamePrefab: {fileID: 0}
-  miniGameScript: {fileID: 0}
-  goldMultiplayer: 1
-  goldTimerMultiplayer: 5
-  hasWonMiniGame: 0
-  MinerFrogPrefab: {fileID: 0}
-  MinerWorkshopPrefab: {fileID: 0}
-  MinerWorkshopUI: {fileID: 0}
-  workshopName: Miner
-  workshopDescription: A place to chop wood and gather resources.
 --- !u!1 &3489429972677111965
 GameObject:
   m_ObjectHideFlags: 0

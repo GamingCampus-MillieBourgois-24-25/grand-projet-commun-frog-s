@@ -15,7 +15,10 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        workshopUIManager.SetActive(false);
+        workshopUIManager.SetActive(false);        
+    }
+
+    public void StartPassiveGeneration(){
         StartCoroutine(GeneratePassiveGold());
     }
 
@@ -31,16 +34,23 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int addAmount)
     {
         golds += addAmount;
+        FindAnyObjectByType<SaveManager>().SaveGame();
     }
 
     public void RemoveGolds(int removeAmount)
     {
         golds -= removeAmount;
+        FindAnyObjectByType<SaveManager>().SaveGame();
     }
 
     public int GetGolds()
     {
         return golds;
+    }
+
+    public void SetGolds(int ammount){
+        golds = ammount;
+        FindAnyObjectByType<SaveManager>().SaveGame();
     }
 
     public void AddDiamonds(int addAmount)

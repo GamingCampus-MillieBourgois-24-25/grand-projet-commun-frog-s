@@ -57,7 +57,6 @@ GameObject:
   - component: {fileID: 8797743156734309381}
   - component: {fileID: 6470668349743585293}
   - component: {fileID: 8746319136751832159}
-  - component: {fileID: 5857794739197769994}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -153,37 +152,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5857794739197769994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1798940524206859699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5df208bb4499854dbce7b0b45f1e2c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uniqueId: 
-  level: 1
-  baseGoldPerCycle: 1
-  goldPerCycle: 1
-  goldPricePerLevel: 50
-  workshopType: 0
-  gameManager: {fileID: 0}
-  workshopUIManager: {fileID: 0}
-  miniGamePrefab: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
-    type: 3}
-  miniGameScript: {fileID: 0}
-  goldMultiplayer: 1
-  goldTimerMultiplayer: 5
-  hasWonMiniGame: 0
-  lumberjackFrogPrefab: {fileID: 0}
-  lumberjackWorkshopPrefab: {fileID: 0}
-  lumberjackWorkshopUI: {fileID: 0}
-  workshopName: Lumberjack
-  workshopDescription: A place to chop wood and gather resources.
 --- !u!1 &3489429972677111965
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345236281448067059}
   - component: {fileID: 3333875457470703376}
+  - component: {fileID: 5706636029959732878}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -265,6 +234,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &5706636029959732878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489429972677111965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5df208bb4499854dbce7b0b45f1e2c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 
+  level: 1
+  baseGoldPerCycle: 1
+  goldPerCycle: 1
+  goldPricePerLevel: 50
+  workshopType: 3
+  gameManager: {fileID: 0}
+  workshopUIManager: {fileID: 0}
+  miniGamePrefab: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
+    type: 3}
+  miniGameScript: {fileID: 0}
+  goldMultiplayer: 1
+  goldTimerMultiplayer: 5
+  hasWonMiniGame: 0
+  lumberjackFrogPrefab: {fileID: 0}
+  lumberjackWorkshopPrefab: {fileID: 0}
+  lumberjackWorkshopUI: {fileID: 0}
+  workshopName: Lumberjack
+  workshopDescription: A place to chop wood and gather resources.
 --- !u!1001 &439436504868677825
 PrefabInstance:
   m_ObjectHideFlags: 0

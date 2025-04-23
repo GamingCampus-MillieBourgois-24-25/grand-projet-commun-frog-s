@@ -9,6 +9,7 @@ public class PlacementPreset : MonoBehaviour
     public void PlaceBuilding(GameObject prefab)
     {
         Instantiate(prefab, transform.position, prefab.transform.rotation);
+        FindAnyObjectByType<SaveManager>().SaveGame();
         Destroy(gameObject);
     }
 
@@ -16,7 +17,7 @@ public class PlacementPreset : MonoBehaviour
     {
         if (MarketplaceUIManager.Instance == null)
         {
-            Debug.LogError("MarketplaceUIManager.Instance is null! Assure-toi qu’il est présent dans la scène.");
+            Debug.LogError("MarketplaceUIManager.Instance is null! Assure-toi quï¿½il est prï¿½sent dans la scï¿½ne.");
             return;
         }
 
