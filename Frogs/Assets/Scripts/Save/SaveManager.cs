@@ -18,6 +18,8 @@ public class BuildingData
 {
     public WorkshopType buildingType;
     public Vector3 position;
+
+    public FrogColor frogColor;
 }
 
 [System.Serializable]
@@ -33,6 +35,8 @@ public class SaveManager : MonoBehaviour
 
     [SerializeField] List<BuildingEntry> buildingList;
     [SerializeField] List<GameObject> ZonesPrefab;
+    [SerializeField] MarketplaceUIManager UIManager;
+    [SerializeField] FrogColorManager CorlorManager;
 
     private void Awake()
     {
@@ -53,6 +57,7 @@ public class SaveManager : MonoBehaviour
             BuildingData buildingData = new BuildingData();
             buildingData.buildingType = work.workshopType;
             buildingData.position = work.transform.position;
+            buildingData.frogColor = work.ColorFrog;
             data.buildings.Add(buildingData);
         }
         string json = JsonUtility.ToJson(data, true);
@@ -71,9 +76,10 @@ public class SaveManager : MonoBehaviour
                     if(buildingData.position == Zone.transform.position){
                         GameObject BuildingToSpawn = GetBuildingByType(buildingData.buildingType);
                         Debug.Log(BuildingToSpawn.name);
-                        Instantiate(BuildingToSpawn, Zone.transform.position, BuildingToSpawn.transform.rotation);
+                        GameObject Workshop = Instantiate(BuildingToSpawn, Zone.transform.position, BuildingToSpawn.transform.rotation);
+                        CorlorManager.ApplyFrogColor(Workshop.GetComponent<BaseWorkshop>(), buildingData.frogColor);
                         Destroy(Zone);
-                        FindAnyObjectByType<MarketplaceUIManager>().UpgratePrice();
+                        UIManager.UpgratePrice();
                         break;
                     }
                 }

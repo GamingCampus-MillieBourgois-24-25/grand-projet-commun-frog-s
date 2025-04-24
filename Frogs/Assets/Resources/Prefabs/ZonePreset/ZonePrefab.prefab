@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2685500927716345067}
   - component: {fileID: 4724157871494167711}
   - component: {fileID: 8252732321824095861}
-  - component: {fileID: 8415343285241798720}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -103,18 +102,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8415343285241798720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3954218735266257636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d36771b69c68246aa4c588672d7ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3976098984576022599
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,6 +323,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1426829341120581188}
+  - component: {fileID: 4892342599962883951}
   m_Layer: 0
   m_Name: ZonePrefab
   m_TagString: Untagged
@@ -359,6 +347,18 @@ Transform:
   - {fileID: 6440733447013288378}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4892342599962883951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7778409353028842019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d36771b69c68246aa4c588672d7ffb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9121885040865038340
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8415343285241798720}
+      - m_Target: {fileID: 4892342599962883951}
         m_TargetAssemblyTypeName: PlacementPreset, Assembly-CSharp
         m_MethodName: OpenMarketPlace
         m_Mode: 1

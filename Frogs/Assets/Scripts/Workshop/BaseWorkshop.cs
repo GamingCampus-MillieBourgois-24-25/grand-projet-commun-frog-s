@@ -1,4 +1,6 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using MiniGames;
 using UI;
@@ -21,6 +23,8 @@ namespace Workshop
         Alchemist,
         Jeweler 
     }
+
+    
     
     public class BaseWorkshop : MonoBehaviour
     {
@@ -40,11 +44,18 @@ namespace Workshop
         [SerializeField] private WorkshopUIManager workshopUIManager;
         [SerializeField] protected GameObject miniGamePrefab;
         [SerializeField] protected BaseMiniGames miniGameScript;
+
+        [Header("Frogs")]
+        [SerializeField] public GameObject Frog;
+        [SerializeField] public FrogColor ColorFrog;
+
         public float goldMultiplayer = 1f;
         public float goldTimerMultiplayer = 5f;
         public bool hasWonMiniGame= false;
 
         private Coroutine _goldMultiplierCoroutine;
+
+        private bool Swapping = true;
         
         protected void Awake()
         {
@@ -61,6 +72,39 @@ namespace Workshop
         
         protected void Update()
         {
+            if(Swapping){
+                if (Input.GetMouseButtonDown(0) || Input.touchCount > 0)
+                {
+                    
+                    Ray ray;
+                    
+                    if (Input.touchCount > 0)
+                    {
+                        Touch touch = Input.GetTouch(0);
+                        ray = Camera.main.ScreenPointToRay(touch.position);
+                    }
+                    else
+                    {
+                        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    }
+
+                    
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        if (hit.collider.gameObject.GetComponent<BaseWorkshop>() != null || hit.collider.gameObject.GetComponent<BaseWorkshop>() != null)
+                        {
+                            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.green); 
+                            SwapPlace(hit.collider.gameObject);
+                        }
+                        else{
+                            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red); 
+                        }
+                    }
+                }
+            }
+
             if (!miniGameScript) return;
             if (miniGameScript.GetHasWin() && !hasWonMiniGame)
             {
@@ -135,6 +179,12 @@ namespace Workshop
             yield return new WaitForSeconds(delay);
             goldMultiplayer = 1f;
             hasWonMiniGame= false;
+        }
+
+        private void SwapPlace(GameObject swapWith){
+            Vector3 MyInitPos = transform.position;
+            transform.position = swapWith.transform.position;
+            swapWith.transform.position = MyInitPos;
         }
         
     }

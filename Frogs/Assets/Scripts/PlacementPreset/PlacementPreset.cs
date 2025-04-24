@@ -3,12 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Workshop;
 
 public class PlacementPreset : MonoBehaviour
 {
     public void PlaceBuilding(GameObject prefab)
     {
-        Instantiate(prefab, transform.position, prefab.transform.rotation);
+        GameObject Workshop = Instantiate(prefab, transform.position, prefab.transform.rotation);
+        FindAnyObjectByType<FrogColorManager>().SetRandomFrogColor(Workshop.GetComponent<BaseWorkshop>());
         FindAnyObjectByType<SaveManager>().SaveGame();
         Destroy(gameObject);
     }

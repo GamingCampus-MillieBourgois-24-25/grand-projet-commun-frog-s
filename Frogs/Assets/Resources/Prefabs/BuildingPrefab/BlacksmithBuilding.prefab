@@ -256,6 +256,8 @@ MonoBehaviour:
   workshopUIManager: {fileID: 0}
   miniGamePrefab: {fileID: 0}
   miniGameScript: {fileID: 0}
+  Frog: {fileID: 6410608336767829143}
+  ColorFrog: 0
   goldMultiplayer: 1
   goldTimerMultiplayer: 5
   hasWonMiniGame: 0
@@ -355,6 +357,12 @@ PrefabInstance:
 --- !u!4 &113584298039447338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 439436504868677825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6410608336767829143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6840474690213719126, guid: eb14517890433d044802897ce2f0c9fd,
     type: 3}
   m_PrefabInstance: {fileID: 439436504868677825}
   m_PrefabAsset: {fileID: 0}
