@@ -8,6 +8,9 @@ namespace MiniGames
     public class LumberjackMiniGame : BaseMiniGames
     {
         [Header("Lumberjack Mini Game Settings")]
+        [SerializeField] private GameObject miniGameObject;
+        [SerializeField] private GameObject startMenu;
+        [SerializeField] private GameObject endMenu;
         [SerializeField] private GameObject trunk1;
         [SerializeField] private GameObject trunk2;
         [SerializeField] private GameObject trunkSpawnPos;
@@ -16,68 +19,90 @@ namespace MiniGames
         [SerializeField] private GameObject branchDestroyPos;
         [SerializeField] private Sprite branchSprite;
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TextMeshProUGUI endText;
 
-        [SerializeField] private float fallSpeed = 200f;
+        [SerializeField] private float fallSpeed = 250f;
 
         [SerializeField] private int requiredHits;
         [SerializeField] private int currentHits = 0;
+
+        private bool _miniGameStarted = false;
+        private bool _canClick = true;
 
         private new void Start()
         {
             GoldMultiplier = 2f;
             base.Start();
-    
-            requiredHits = Random.Range(7, 16);
-            scoreText.text = $"{requiredHits - currentHits}";
-    
-            StartCoroutine(SpawnBranches());
-            StartCoroutine(ScrollTrunks());
+            startMenu.SetActive(true);
+            endMenu.SetActive(false);
+            miniGameObject.SetActive(false);
         }
-
 
         private new void Update()
         {
             base.Update();
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (IsHittingBranch())
-                {
-                    Debug.Log("DEAD");
-                    HasWin = false;
-                    StopAllCoroutines();
-                    CloseMiniGame();
-                    return;
-                }
-
-                currentHits++;
-
-                if (currentHits >= requiredHits)
-                {
-                    Debug.Log("WIN");
-                    HasWin = true;
-                    CloseMiniGame();
-                }
-            }
+            if (!_miniGameStarted) return;
             
+            if (Input.GetMouseButtonDown(0) && _canClick)
+            {
+                StartCoroutine(HandleClick());
+            }
+
             scoreText.text = $"{requiredHits - currentHits}";
         }
         
-        private bool IsHittingBranch()
+        private void HitBranch()
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-    
-            RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
-            Debug.DrawRay(ray.origin, ray.direction * 10f, Color.red);
-    
-            if (hit.collider != null && hit.collider.CompareTag("Branch"))
-            {
-                Debug.Log("Branch hit: " + hit.collider.name);
-                return true;
-            }
-    
-            return false;
+            HasWin = false;
+            HasClosedMiniGame = false;
+            ShowEndMenu(false);
         }
+        
+        public void StartMiniGame()
+        {
+            startMenu.SetActive(false);
+            endMenu.SetActive(false);
+            miniGameObject.SetActive(true);
+            HasWin = false;
+            HasClosedMiniGame = false;
+            _miniGameStarted = true;
+            requiredHits = Random.Range(7, 16);
+            scoreText.text = $"{requiredHits - currentHits}";
+            
+            StartCoroutine(SpawnBranches());
+            StartCoroutine(ScrollTrunks());
+        }
+        
+        private void ShowEndMenu(bool hasWon)
+        {
+            endMenu.SetActive(true);
+            miniGameObject.SetActive(false);
+            _miniGameStarted = false;
+            HasWin = hasWon;
+            
+            endText.text = hasWon ? "You won!" : "You lost!";
+            
+            StopAllCoroutines();
+        }
+        
+        private IEnumerator HandleClick()
+        {
+            _canClick = false;
+
+            currentHits++;
+
+            if (currentHits >= requiredHits)
+            {
+                ShowEndMenu(true);
+            }
+
+            scoreText.text = $"{requiredHits - currentHits}";
+
+            yield return new WaitForSeconds(1f);
+            _canClick = true;
+        }
+
         
         private IEnumerator ScrollTrunks()
         {
@@ -107,7 +132,6 @@ namespace MiniGames
             }
         }
 
-
         private IEnumerator SpawnBranches()
         {
             while (!HasWin)
@@ -126,27 +150,22 @@ namespace MiniGames
                 branch.transform.position = spawnPoint.transform.position;
                 
                 branch.tag = "Branch";
-
-                var branchCollider = branch.AddComponent<BoxCollider2D>();
-                branchCollider.isTrigger = true;
-
+                
                 var rb = branch.AddComponent<Rigidbody2D>();
                 rb.gravityScale = 0;
                 rb.isKinematic = true;
 
-
                 Image img = branch.AddComponent<Image>();
                 img.sprite = branchSprite;
+                img.rectTransform.sizeDelta = new Vector2(100f, 100f);
                 img.SetNativeSize();
 
                 branch.transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+
+                var button = branch.AddComponent<Button>();
+                var thisGame = this;
+                button.onClick.AddListener(() => thisGame.HitBranch());
                 
-                RectTransform branchRect = branch.GetComponent<RectTransform>();
-                Vector2 size = branchRect.sizeDelta * 0.4f;
-                branchCollider.size = size;
-                branchCollider.offset = Vector2.zero;
-
-
                 if (isLeft)
                 {
                     branch.transform.rotation = Quaternion.Euler(0, 180, 0);

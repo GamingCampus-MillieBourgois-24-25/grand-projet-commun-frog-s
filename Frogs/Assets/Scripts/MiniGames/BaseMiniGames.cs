@@ -8,6 +8,7 @@ namespace MiniGames
         [Header("Base Mini Game Settings")]
         protected float GoldMultiplier = 1.0f;
         protected bool HasWin;
+        protected bool HasClosedMiniGame;
         
         [Header("Core Scripts")]
         [SerializeField] private GameManager gameManager;
@@ -23,6 +24,7 @@ namespace MiniGames
 
         public void CloseMiniGame()
         {
+            HasClosedMiniGame = true;
             Destroy(gameObject);
         }
         
@@ -39,6 +41,16 @@ namespace MiniGames
         public void SetHasWin(bool hasWinSetter)
         {
             HasWin = hasWinSetter;
+        }
+        
+        public bool GetHasClosedMiniGame()
+        {
+            return HasClosedMiniGame;
+        }
+        
+        public void SetHasClosedMiniGame(bool hasClosedMiniGameSetter)
+        {
+            HasClosedMiniGame = hasClosedMiniGameSetter;
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - GameManager
   - WorkshopUIManager
   - Branch
+  - MainCanvas
   layers:
   - Default
   - TransparentFX
