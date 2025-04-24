@@ -277,6 +277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345236281448067059}
   - component: {fileID: 3333875457470703376}
+  - component: {fileID: 1857449384551855510}
   m_Layer: 0
   m_Name: CouturierBuilding
   m_TagString: Untagged
@@ -349,6 +350,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.5}
   m_EdgeRadius: 0
+--- !u!114 &1857449384551855510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489429972677111965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbd34433177101c4f8cd709d1de3f3ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetCanvas: {fileID: 7496904363416727807}
+  startHidden: 1
 --- !u!1 &5064398800261455682
 GameObject:
   m_ObjectHideFlags: 0

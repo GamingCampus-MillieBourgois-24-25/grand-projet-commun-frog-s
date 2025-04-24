@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GameManager
   - WorkshopUIManager
+  - Hook
+  - Coin
+  - Trash
   layers:
   - Default
   - TransparentFX
