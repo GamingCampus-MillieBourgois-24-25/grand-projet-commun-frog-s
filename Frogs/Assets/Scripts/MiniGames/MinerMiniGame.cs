@@ -69,7 +69,7 @@ namespace MiniGames
                 Debug.Log(" MINI-JEU RATÉ : Aucun boost activé.");
             }
 
-            Invoke(nameof(CloseMiniGame), 1.5f);
+            Invoke(nameof(CloseMiniGame), 5f);
         }
 
     }
