@@ -198,8 +198,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.3349, y: 291.07}
-  m_SizeDelta: {x: 278.2698, y: 29.852}
+  m_AnchoredPosition: {x: 4.9, y: 437}
+  m_SizeDelta: {x: 350, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8702289880942365606
 MonoBehaviour:
@@ -217,7 +217,7 @@ MonoBehaviour:
     type: 3}
   trashPrefab: {fileID: 7580060470870637377, guid: d18aa9893be40da488cf47bf4b0b1275,
     type: 3}
-  trashSpawnChance: 0.5
+  trashSpawnChance: 0.35
   canvasRect: {fileID: 2911772081007827795}
   spawnInterval: 0.8
 --- !u!1 &2676366877245401403
@@ -313,7 +313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1711122771617878310
 RectTransform:
   m_ObjectHideFlags: 0
@@ -685,8 +685,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015259, y: -353.6601}
-  m_SizeDelta: {x: 356, y: 74.3122}
+  m_AnchoredPosition: {x: -0.00088501, y: -436}
+  m_SizeDelta: {x: 360, y: 74.3122}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2932582502580688901
 MonoBehaviour:
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0.9056604, g: 0.8455362, b: 0.49982202, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
