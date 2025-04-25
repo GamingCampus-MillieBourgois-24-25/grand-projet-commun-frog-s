@@ -74,6 +74,11 @@ namespace MiniGames
                     crystalImage.sprite = crystalStages[currentStage];
                 }
             }
+
+            if (currentClicks >= targetClicks)
+            {
+                EndGame();
+            }
         }
 
         private void EndGame()
