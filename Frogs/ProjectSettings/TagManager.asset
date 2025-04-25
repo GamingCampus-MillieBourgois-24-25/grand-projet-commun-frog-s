@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - WorkshopUIManager
+  - Branch
+  - MainCanvas
   - Hook
   - Coin
   - Trash

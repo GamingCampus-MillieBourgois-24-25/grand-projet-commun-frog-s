@@ -62,15 +62,10 @@ namespace Workshop
         protected void Update()
         {
             if (!miniGameScript) return;
-            if (miniGameScript.GetHasWin() && !hasWonMiniGame)
+            if (miniGameScript.GetHasWin() && miniGameScript.GetHasClosedMiniGame() && !hasWonMiniGame)
             {
                 StartGoldMultiplayer();
                 hasWonMiniGame= true;
-            }
-            
-            if (Input.GetKeyDown(KeyCode.U))
-            {
-                UpgradeWorkshop();
             }
         }
 
