@@ -1,4 +1,4 @@
-using TMPro;
+Ôªøusing TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,10 +8,14 @@ namespace MiniGames
     {
         [Header("UI Elements")]
         [SerializeField] private Button crystalButton;
+        [SerializeField] private Image crystalImage;
         [SerializeField] private TextMeshProUGUI clickCounterText;
         [SerializeField] private Image timerFillImage;
         [SerializeField] private GameObject successMessage;
         [SerializeField] private GameObject failMessage;
+
+        [Header("Crystal Sprites")]
+        [SerializeField] private Sprite[] crystalStages;
 
         [Header("Settings")]
         [SerializeField] private int targetClicks = 30;
@@ -21,6 +25,9 @@ namespace MiniGames
         private float currentTime = 0f;
         private bool isGameActive = true;
 
+        private int stageThreshold;
+        private int currentStage = 0;
+
         private new void Start()
         {
             GoldMultiplier = 3f;
@@ -28,6 +35,11 @@ namespace MiniGames
 
             crystalButton.onClick.AddListener(ClickCrystal);
             currentTime = gameDuration;
+
+            stageThreshold = Mathf.Max(1, targetClicks / 3);
+
+            if (crystalStages.Length > 0 && crystalImage != null)
+                crystalImage.sprite = crystalStages[0];
         }
 
         private new void Update()
@@ -37,7 +49,8 @@ namespace MiniGames
             if (!isGameActive) return;
 
             currentTime -= Time.deltaTime;
-            timerFillImage.fillAmount = currentTime / gameDuration;
+            if (timerFillImage != null)
+                timerFillImage.fillAmount = currentTime / gameDuration;
 
             if (currentTime <= 0)
             {
@@ -48,8 +61,19 @@ namespace MiniGames
         private void ClickCrystal()
         {
             if (!isGameActive) return;
+
             currentClicks++;
             clickCounterText.text = $"Clics : {currentClicks}";
+
+            int newStage = Mathf.Min(2, currentClicks / stageThreshold);
+            if (newStage > currentStage)
+            {
+                currentStage = newStage;
+                if (crystalStages.Length > currentStage && crystalImage != null)
+                {
+                    crystalImage.sprite = crystalStages[currentStage];
+                }
+            }
         }
 
         private void EndGame()
@@ -60,17 +84,16 @@ namespace MiniGames
             {
                 successMessage.SetActive(true);
                 HasWin = true;
-                Debug.Log(" MINI-JEU R…USSI : Boost activÈ pour les b‚timents Miner !");
+                Debug.Log("‚úÖ MINI-JEU R√âUSSI : Boost activ√© pour les b√¢timents Miner !");
             }
             else
             {
                 failMessage.SetActive(true);
                 HasWin = false;
-                Debug.Log(" MINI-JEU RAT… : Aucun boost activÈ.");
+                Debug.Log("‚ùå MINI-JEU RAT√â : Aucun boost activ√©.");
             }
 
             Invoke(nameof(CloseMiniGame), 5f);
         }
-
     }
 }
