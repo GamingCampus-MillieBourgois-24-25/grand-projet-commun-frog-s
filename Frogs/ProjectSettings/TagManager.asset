@@ -8,6 +8,9 @@ TagManager:
   - WorkshopUIManager
   - Branch
   - MainCanvas
+  - Hook
+  - Coin
+  - Trash
   layers:
   - Default
   - TransparentFX

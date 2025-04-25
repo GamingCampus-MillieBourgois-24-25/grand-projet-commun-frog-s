@@ -69,12 +69,12 @@ namespace Workshop
             }
         }
 
-        protected void OnMouseDown()
-        {
-            gameManager.ShowWorkshopUI_Manager();
-            workshopUIManager.SetMiniGamePrefab(miniGamePrefab);
-            workshopUIManager.SetActiveWorkshop(this);
-        }
+        //protected void OnMouseDown()
+        //{
+        //    gameManager.ShowWorkshopUI_Manager();
+        //    workshopUIManager.SetMiniGamePrefab(miniGamePrefab);
+        //    workshopUIManager.SetActiveWorkshop(this);
+        //}
         
         private void OnMiniGameCreated(BaseMiniGames miniGame)
         {
