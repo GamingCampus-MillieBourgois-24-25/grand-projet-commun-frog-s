@@ -20,7 +20,6 @@ public class FrogClass
 
     private FrogStats stats;
     private string name;
-    private BaseWorkshop fregWorkshop;
     
     public FrogClass(){
         stats = new FrogStats();

@@ -13,7 +13,7 @@ public class MarketplaceUIManager : MonoBehaviour
     [Header("Noms des Ateliers")]
     [SerializeField] private List<string> workshopNames = new List<string>();
 
-    [Header("Sprites des bâtiments")]
+    [Header("Sprites des bï¿½timents")]
     [SerializeField] private List<Sprite> buildingIcons = new List<Sprite>();
 
     [Header("Prefabs des Ateliers")]
@@ -93,7 +93,7 @@ public class MarketplaceUIManager : MonoBehaviour
             if (GameManagerInstance().GetGolds() >= currentGlobalPrice)
             {
                 GameManagerInstance().RemoveGolds(currentGlobalPrice);
-                currentGlobalPrice *= 5;
+                UpgratePrice();
                 UpdatePriceUI();
                 UpdateButtonsInteractable();
                 currentPlacement.PlaceBuilding(prefab);
@@ -102,6 +102,11 @@ public class MarketplaceUIManager : MonoBehaviour
         });
 
         UpdateButtonsInteractable();
+    }
+
+    public void UpgratePrice(){
+        currentGlobalPrice *= 5;
+        UpdatePriceUI();
     }
 
 
@@ -136,7 +141,7 @@ public class MarketplaceUIManager : MonoBehaviour
     {
         RectTransform rt = panelToSlide;
         float elapsed = 0f;
-        float startY = -targetHeight;  // départ en dessous de l’écran
+        float startY = -targetHeight;  // dï¿½part en dessous de lï¿½ï¿½cran
         float targetY = 0f;
 
         rt.anchoredPosition = new Vector2(rt.anchoredPosition.x, startY);
@@ -216,7 +221,7 @@ IEnumerator PopScaleCoroutine()
     while (t < duration)
     {
         t += Time.deltaTime;
-        float scale = Mathf.SmoothStep(0f, 1.1f, t / duration); // petit dépassement pour l’effet "pop"
+        float scale = Mathf.SmoothStep(0f, 1.1f, t / duration); // petit dï¿½passement pour lï¿½effet "pop"
         panelToSlide.localScale = new Vector3(scale, scale, 1f);
         yield return null;
     }
