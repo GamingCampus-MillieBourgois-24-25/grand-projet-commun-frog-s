@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 4345236281448067059}
   - component: {fileID: 3333875457470703376}
   - component: {fileID: 8683013926917401281}
+  - component: {fileID: 4651932182619690870}
   m_Layer: 0
   m_Name: PeintreBuilding
   m_TagString: Untagged
@@ -262,6 +263,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetCanvas: {fileID: 1630233163290867933}
   startHidden: 1
+--- !u!114 &4651932182619690870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3489429972677111965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dedfd96e9416c194c8bf950aaebf293e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueId: 
+  level: 1
+  baseGoldPerCycle: 1
+  goldPerCycle: 1
+  goldPricePerLevel: 50
+  workshopType: 4
+  gameManager: {fileID: 0}
+  workshopUIManager: {fileID: 0}
+  miniGamePrefab: {fileID: 0}
+  miniGameScript: {fileID: 0}
+  Frog: {fileID: 6410608336767829143}
+  ColorFrog: 0
+  goldMultiplayer: 1
+  goldTimerMultiplayer: 5
+  hasWonMiniGame: 0
 --- !u!1 &3678493893322897996
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,6 +801,12 @@ PrefabInstance:
 --- !u!4 &113584298039447338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
+    type: 3}
+  m_PrefabInstance: {fileID: 439436504868677825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6410608336767829143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6840474690213719126, guid: eb14517890433d044802897ce2f0c9fd,
     type: 3}
   m_PrefabInstance: {fileID: 439436504868677825}
   m_PrefabAsset: {fileID: 0}
