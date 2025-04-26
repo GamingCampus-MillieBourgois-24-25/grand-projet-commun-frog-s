@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6989381612679612688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9085539900060294361}
+  - component: {fileID: 5040242358631623391}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9085539900060294361
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989381612679612688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.9633203, y: -1.9526675, z: 9.411872}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5040242358631623391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6989381612679612688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d393e6e5aa54748a2eb1c2fe572bcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingList:
+  - buildingType: 0
+    buildingPrefab: {fileID: 1070528139650361599, guid: 7bc52c5304b7cb64b940434018ee2f19,
+      type: 3}
+  - buildingType: 1
+    buildingPrefab: {fileID: 3489429972677111965, guid: a7db9dc54a4068645b3814685759f11c,
+      type: 3}
+  - buildingType: 2
+    buildingPrefab: {fileID: 4196179467195841100, guid: 49c927bfa34c350468ef08fcebd39fc4,
+      type: 3}
+  - buildingType: 3
+    buildingPrefab: {fileID: 3489429972677111965, guid: 256721bbdc3aa48458cf29350dcfb9c1,
+      type: 3}
+  - buildingType: 4
+    buildingPrefab: {fileID: 3489429972677111965, guid: edfb350f8658fde459be53bd67fa5b87,
+      type: 3}
+  - buildingType: 5
+    buildingPrefab: {fileID: 3489429972677111965, guid: c429864376f7f3943a1b20ddcda09249,
+      type: 3}
+  - buildingType: 6
+    buildingPrefab: {fileID: 3489429972677111965, guid: c429864376f7f3943a1b20ddcda09249,
+      type: 3}
+  - buildingType: 7
+    buildingPrefab: {fileID: 3489429972677111965, guid: 392933dc6eb82a44cb8152603b176c3a,
+      type: 3}
+  - buildingType: 8
+    buildingPrefab: {fileID: 3489429972677111965, guid: f8abbe5540c86114694d952a0c7e50fa,
+      type: 3}
+  - buildingType: 9
+    buildingPrefab: {fileID: 3489429972677111965, guid: c429864376f7f3943a1b20ddcda09249,
+      type: 3}
+  - buildingType: 10
+    buildingPrefab: {fileID: 3489429972677111965, guid: c429864376f7f3943a1b20ddcda09249,
+      type: 3}
+  - buildingType: 11
+    buildingPrefab: {fileID: 3489429972677111965, guid: c429864376f7f3943a1b20ddcda09249,
+      type: 3}
+  ZonesPrefab:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  UIManager: {fileID: 0}
+  CorlorManager: {fileID: 0}

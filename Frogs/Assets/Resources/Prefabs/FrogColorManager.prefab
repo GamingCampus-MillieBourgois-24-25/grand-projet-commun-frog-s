@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1180686165859788942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1376017237950847930}
+  - component: {fileID: 3829883451294120583}
+  m_Layer: 0
+  m_Name: FrogColorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1376017237950847930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180686165859788942}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.003619, y: -1.5841476, z: 9.993086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3829883451294120583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180686165859788942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d6c8e129e2854a4ebed694aba87fc21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MatByColor:
+  - Color: 0
+    FrogMat: {fileID: 2100000, guid: 28e69119e991bfa429729c3ef8bf239d, type: 2}
+  - Color: 1
+    FrogMat: {fileID: 2100000, guid: 7ca34866bc9679f4d992d54913088d58, type: 2}
+  - Color: 2
+    FrogMat: {fileID: 2100000, guid: 4e5e89dc58dd4f048992acbb8fd70b93, type: 2}
+  - Color: 3
+    FrogMat: {fileID: 2100000, guid: 70772feccc5b1a347828c051a8ba4716, type: 2}
+  - Color: 4
+    FrogMat: {fileID: 2100000, guid: e8861990277649a4aa901719a952a6c9, type: 2}
+  - Color: 5
+    FrogMat: {fileID: 2100000, guid: 5e693173e53b1db41a321abf56aca166, type: 2}
+  - Color: 6
+    FrogMat: {fileID: 2100000, guid: 454e1e0b1c4a5214f8319df910ffc875, type: 2}
+  - Color: 7
+    FrogMat: {fileID: 2100000, guid: 1565a6ecadd8adb41976c5720d7c9eaf, type: 2}
+  - Color: 8
+    FrogMat: {fileID: 2100000, guid: 73a1319e4ed5e9749b5cc9c5bc3537f2, type: 2}
+  - Color: 9
+    FrogMat: {fileID: 2100000, guid: 38fe91ee63513be40a068ade3afe29dd, type: 2}
+  - Color: 10
+    FrogMat: {fileID: 2100000, guid: 64cd6ee10728d8240889711db4703a9b, type: 2}
+  - Color: 11
+    FrogMat: {fileID: 2100000, guid: 3fd0590d9612ccd44b11be608ec55bd2, type: 2}
