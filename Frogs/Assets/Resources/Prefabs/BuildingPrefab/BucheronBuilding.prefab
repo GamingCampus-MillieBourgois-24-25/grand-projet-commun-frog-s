@@ -160,11 +160,13 @@ MonoBehaviour:
   baseGoldPerCycle: 1
   goldPerCycle: 1
   goldPricePerLevel: 50
+  workshopValue: 10
   workshopType: 3
   gameManager: {fileID: 0}
-  workshopUIManager: {fileID: 0}
+  workshopUIManager: {fileID: 8292337928281067015}
   miniGamePrefab: {fileID: 0}
   miniGameScript: {fileID: 0}
+  workshopValueText: {fileID: 7324693305361882623}
   Frog: {fileID: 6410608336767829143}
   ColorFrog: 0
   goldMultiplayer: 1
@@ -278,6 +280,23 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4345236281448067059}
     m_Modifications:
+    - target: {fileID: 5268823779891172372, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008366823544630795, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+        type: 3}
+      propertyPath: miniGamePrefab
+      value: 
+      objectReference: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
+        type: 3}
+    - target: {fileID: 6008366823544630795, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+        type: 3}
+      propertyPath: currentMiniGame
+      value: 
+      objectReference: {fileID: 2617501987657254388, guid: c4f80d19daa123a44a3527ce19b86358,
+        type: 3}
     - target: {fileID: 6946508640944461531, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
         type: 3}
       propertyPath: m_Pivot.x
@@ -400,6 +419,30 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 2339141323341144076}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7324693305361882623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5030737813636218355, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2339141323341144076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8292337928281067015 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6008366823544630795, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2339141323341144076}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f4899725c0c86c40822c941fdaf8c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9080513211391932440
 PrefabInstance:
   m_ObjectHideFlags: 0

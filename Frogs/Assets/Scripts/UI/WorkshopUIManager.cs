@@ -18,8 +18,15 @@ namespace UI
         [SerializeField] private GameObject miniGamePrefab;
         [SerializeField] private GameObject currentMiniGame;
 
-        private UnityEvent<BaseMiniGames> onMiniGameCreated = new UnityEvent<BaseMiniGames>();
         private BaseWorkshop activeWorkshop;
+        private bool miniGameSold = false;
+        private bool upgradeWorkshop = false;
+        
+        public void Start()
+        {
+            gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+            canvasContainer = GameObject.FindGameObjectWithTag("MainCanvas");
+        }
         
         public void OpenMiniGame()
         {
@@ -27,7 +34,16 @@ namespace UI
             gameManager.HideWorkshopUI_Manager();
             gameManager.SetIsStartedMiniGame(true);
 
-            onMiniGameCreated?.Invoke(currentMiniGame.GetComponent<BaseMiniGames>());
+        }
+
+        public void SellMiniGame()
+        {
+            miniGameSold = true;
+        }
+
+        public void UpgradeWorkshop()
+        {
+            upgradeWorkshop = true;
         }
         
         public void SetMiniGamePrefab(GameObject miniGameToSet)
@@ -45,9 +61,24 @@ namespace UI
             return activeWorkshop;
         }
         
-        public UnityEvent<BaseMiniGames> GetOnMiniGameCreated()
+        public bool GetMiniGameSold()
         {
-            return onMiniGameCreated;
+            return miniGameSold;
+        }
+        
+        public void SetMiniGameSold(bool miniGameSoldSetter)
+        {
+            miniGameSold = miniGameSoldSetter;
+        }
+        
+        public bool GetUpgradeWorkshop()
+        {
+            return upgradeWorkshop;
+        }
+        
+        public void SetUpgradeWorkshop(bool upgradeWorkshopSetter)
+        {
+            upgradeWorkshop = upgradeWorkshopSetter;
         }
     }
 }

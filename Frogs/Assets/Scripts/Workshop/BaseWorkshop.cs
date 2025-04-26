@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using MiniGames;
+using TMPro;
 using UI;
 using UnityEngine;
 
@@ -37,6 +38,7 @@ namespace Workshop
         public int baseGoldPerCycle = 1;
         public int goldPerCycle = 1;
         public int goldPricePerLevel = 50;
+        public int workshopValue = 10;
         public WorkshopType workshopType;
 
         [Header("Core")]
@@ -44,6 +46,7 @@ namespace Workshop
         [SerializeField] private WorkshopUIManager workshopUIManager;
         [SerializeField] protected GameObject miniGamePrefab;
         [SerializeField] protected BaseMiniGames miniGameScript;
+        [SerializeField] private TextMeshProUGUI workshopValueText;
 
         [Header("Frogs")]
         [SerializeField] public GameObject Frog;
@@ -66,8 +69,7 @@ namespace Workshop
         {
             StartCoroutine(GenerateGoldCoroutine());
             gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-            workshopUIManager = gameManager.GetWorkshopUIManger();
-            workshopUIManager.GetOnMiniGameCreated().AddListener(OnMiniGameCreated);
+            workshopValueText.text = workshopValue.ToString();
         }
         
         protected void Update()
@@ -105,6 +107,8 @@ namespace Workshop
                 }
             }
 
+            WorkshopUIHandler();
+
             if (!miniGameScript) return;
             if (miniGameScript.GetHasWin() && miniGameScript.GetHasClosedMiniGame() && !hasWonMiniGame)
             {
@@ -112,34 +116,35 @@ namespace Workshop
                 hasWonMiniGame= true;
             }
         }
-
-        //protected void OnMouseDown()
-        //{
-        //    gameManager.ShowWorkshopUI_Manager();
-        //    workshopUIManager.SetMiniGamePrefab(miniGamePrefab);
-        //    workshopUIManager.SetActiveWorkshop(this);
-        //}
         
-        private void OnMiniGameCreated(BaseMiniGames miniGame)
+        private void WorkshopUIHandler()
         {
-            if (workshopType != workshopUIManager.GetActiveWorkshop().workshopType)
+            if (workshopUIManager.GetMiniGameSold())
             {
-                return;
+                workshopUIManager.SetMiniGameSold(false);
+                gameManager.AddMoney(workshopValue);
+                Destroy(gameObject);
+                FindAnyObjectByType<SaveManager>().SaveGame();
             }
-            
-            Debug.Log("MiniGame Created: " + miniGame.gameObject.name);
-            miniGameScript = miniGame;
-            miniGameScript.SetHasWin(false);
+
+            if (workshopUIManager.GetUpgradeWorkshop())
+            {
+                UpgradeWorkshop();
+            }
         }
 
         private void UpgradeWorkshop()
         {
             if (gameManager.GetGolds() >= goldPricePerLevel)
             {
+                workshopValue += goldPricePerLevel;
+                workshopValueText.text = workshopValue.ToString();
                 gameManager.RemoveGolds(goldPricePerLevel);
                 level++;
                 baseGoldPerCycle *= 2;
                 goldPricePerLevel *= 2;
+                workshopUIManager.SetUpgradeWorkshop(false);
+                FindAnyObjectByType<SaveManager>().SaveGame();
             }
         }
 
