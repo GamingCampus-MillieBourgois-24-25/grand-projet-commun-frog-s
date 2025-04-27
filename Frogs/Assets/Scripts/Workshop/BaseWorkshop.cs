@@ -44,7 +44,6 @@ namespace Workshop
         [Header("Core")]
         [SerializeField] private GameManager gameManager;
         [SerializeField] private WorkshopUIManager workshopUIManager;
-        [SerializeField] protected GameObject miniGamePrefab;
         [SerializeField] protected BaseMiniGames miniGameScript;
         [SerializeField] private TextMeshProUGUI workshopValueText;
 
