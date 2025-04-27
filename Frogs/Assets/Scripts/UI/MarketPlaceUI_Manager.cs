@@ -105,7 +105,7 @@ public class MarketplaceUIManager : MonoBehaviour
     }
 
     public void UpgratePrice(){
-        currentGlobalPrice *= 5;
+        currentGlobalPrice *= 2;
         UpdatePriceUI();
     }
 

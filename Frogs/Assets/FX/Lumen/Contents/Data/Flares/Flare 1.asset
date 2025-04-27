@@ -17,7 +17,7 @@ MonoBehaviour:
     flareMesh: {fileID: 0}
     scale: 2.22
     brightness: 1
-    colorMultiplier: {r: 1, g: 1, b: 1, a: 1}
+    colorMultiplier: {r: 0.9339623, g: 0.1930453, b: 0, a: 1}
     open: 1
   - flareShape: 0
     flareMesh: {fileID: 0}

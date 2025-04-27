@@ -13,6 +13,12 @@ public class CameraController : MonoBehaviour
     public float minZoom = 60f;
     public float maxZoom = 130f;
 
+    [Header("Pan Limits")]
+    public float minX = -50f;
+    public float maxX = 50f;
+    public float minZ = -50f;
+    public float maxZ = 50f;
+
     private Camera cam;
     private Vector2 lastPanPosition;
     private int panFingerId;
@@ -126,8 +132,14 @@ public class CameraController : MonoBehaviour
 
     void PanCamera(Vector2 delta)
     {
-        Vector3 move = new Vector3(-delta.x, 0,-delta.y) * dragSpeed * Time.deltaTime;
+        Vector3 move = new Vector3(-delta.x, 0, -delta.y) * dragSpeed * Time.deltaTime;
         transform.Translate(move, Space.World);
+
+        // Clamp la position pour ne pas sortir des limites
+        Vector3 clampedPosition = transform.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, minX, maxX);
+        clampedPosition.z = Mathf.Clamp(clampedPosition.z, minZ, maxZ);
+        transform.position = clampedPosition;
     }
 
 

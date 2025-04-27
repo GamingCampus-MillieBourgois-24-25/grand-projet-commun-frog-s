@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 1153734923795962813}
   - component: {fileID: 8505155707607252373}
   m_Layer: 0
-  m_Name: BucheronBuilding 2
+  m_Name: SorcererBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,10 +162,9 @@ MonoBehaviour:
   goldPerCycle: 1
   goldPricePerLevel: 50
   workshopValue: 10
-  workshopType: 3
+  workshopType: 10
   gameManager: {fileID: 0}
   workshopUIManager: {fileID: 8292337928281067015}
-  miniGamePrefab: {fileID: 0}
   miniGameScript: {fileID: 0}
   workshopValueText: {fileID: 7324693305361882623}
   Frog: {fileID: 6410608336767829143}
@@ -199,22 +198,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.039
+      value: 0.437
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.139
+      value: 0.032000005
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.189
+      value: -0.428
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.087258786
+      value: -0.99891007
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
@@ -224,7 +223,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9961857
+      value: -0.04667581
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
@@ -239,7 +238,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 190.012
+      value: 365.351
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eb14517890433d044802897ce2f0c9fd,
         type: 3}
@@ -502,10 +501,70 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.446
+      objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.476
+      objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.98710823
+      objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.16005424
+      objectReference: {fileID: 0}
+    - target: {fileID: -7687617613187302491, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -18.42
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 61146fab25413ce49af0f8b21866e534,
         type: 3}
       propertyPath: m_Name
       value: magicien atelier
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.665
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.251
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.085
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8593625
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.511367
+      objectReference: {fileID: 0}
+    - target: {fileID: 2565193944053299541, guid: 61146fab25413ce49af0f8b21866e534,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 61.51
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -580,6 +639,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bucheron
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 45a221a32a528064b8392a9b03f7e075,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

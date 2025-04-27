@@ -46,6 +46,7 @@ namespace Workshop
         [SerializeField] private WorkshopUIManager workshopUIManager;
         [SerializeField] protected BaseMiniGames miniGameScript;
         [SerializeField] private TextMeshProUGUI workshopValueText;
+        [SerializeField] private PlacementPreset placementParent;
 
         [Header("Frogs")]
         [SerializeField] public GameObject Frog;
@@ -123,6 +124,8 @@ namespace Workshop
                 workshopUIManager.SetMiniGameSold(false);
                 gameManager.AddMoney(workshopValue);
                 Destroy(gameObject);
+                placementParent.ActivateBack();
+
                 FindAnyObjectByType<SaveManager>().SaveGame();
             }
 
@@ -185,6 +188,11 @@ namespace Workshop
             transform.position = swapWith.transform.position;
             swapWith.transform.position = MyInitPos;
         }
-        
+
+        public void SetPlacementParent(PlacementPreset placementPreset)
+        {
+            placementParent = placementPreset;
+        }
+
     }
 }

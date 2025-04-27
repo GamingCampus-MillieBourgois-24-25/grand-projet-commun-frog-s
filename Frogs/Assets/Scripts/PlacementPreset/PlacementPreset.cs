@@ -7,12 +7,24 @@ using Workshop;
 
 public class PlacementPreset : MonoBehaviour
 {
+    private Canvas canvas;
     public void PlaceBuilding(GameObject prefab)
     {
-        GameObject Workshop = Instantiate(prefab, transform.position, prefab.transform.rotation);
+        GameObject Workshop = Instantiate(prefab, transform.position, prefab.transform.rotation, transform);
         FindAnyObjectByType<FrogColorManager>().SetRandomFrogColor(Workshop.GetComponent<BaseWorkshop>());
         FindAnyObjectByType<SaveManager>().SaveGame();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        BaseWorkshop workshop = Workshop.GetComponent<BaseWorkshop>();
+        workshop.SetPlacementParent(this);
+
+        canvas = GetComponentInChildren<Canvas>();
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(false);
+        }
+
+
     }
 
     public void OpenMarketPlace()
@@ -26,4 +38,11 @@ public class PlacementPreset : MonoBehaviour
         MarketplaceUIManager.Instance.Open(this);
     }
 
+    public void ActivateBack()
+    {
+        Debug.Log("ActivateBack");
+        //GetComponentInChildren<Canvas>().gameObject.SetActive(true);
+        canvas.gameObject.SetActive(true);
+    }
 }
+
