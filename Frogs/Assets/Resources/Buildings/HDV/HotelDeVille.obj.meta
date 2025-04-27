@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c1b3e76d0ac608340a1c289be3708929
+guid: 73599d1f664e403469c8f86d802633df
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 2100000, guid: 9a265b6a29715114780e2f6eabe84640, type: 2}
+      name: hdv_lvl2_hdv_lvl2Mat
+    second: {fileID: 2100000, guid: 170f9585694d6464894ea47bfeca5e77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
