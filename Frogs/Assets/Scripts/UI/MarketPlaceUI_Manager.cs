@@ -30,6 +30,11 @@ public class MarketplaceUIManager : MonoBehaviour
     [SerializeField] private float slideDuration = 0.5f;
     [SerializeField] private float targetHeight = 300f;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioClip openSound;
+    [SerializeField] private float openSoundVolume = 1f;
+
+
     public static MarketplaceUIManager Instance { get; private set; }
 
     private PlacementPreset currentPlacement;
@@ -71,9 +76,15 @@ public class MarketplaceUIManager : MonoBehaviour
             AddButton(workshopNames[i], workshopPrefabs[i]);
         }
 
+        if (openSound != null)
+        {
+            AudioSource.PlayClipAtPoint(openSound, Camera.main.transform.position, openSoundVolume);
+        }
+
         gameObject.SetActive(true);
         StartCoroutine(SlideUp());
     }
+
 
     void AddButton(string label, GameObject prefab)
     {

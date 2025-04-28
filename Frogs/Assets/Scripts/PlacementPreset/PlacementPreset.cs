@@ -8,15 +8,20 @@ using Workshop;
 public class PlacementPreset : MonoBehaviour
 {
     private Canvas canvas;
+    public GameObject placementFxPrefab;
+    public AudioClip placementSound;
+
+
     public void PlaceBuilding(GameObject prefab)
     {
         GameObject Workshop = Instantiate(prefab, transform.position, prefab.transform.rotation, transform);
         FindAnyObjectByType<FrogColorManager>().SetRandomFrogColor(Workshop.GetComponent<BaseWorkshop>());
         FindAnyObjectByType<SaveManager>().SaveGame();
-        //Destroy(gameObject);
 
         BaseWorkshop workshop = Workshop.GetComponent<BaseWorkshop>();
         workshop.SetPlacementParent(this);
+
+
 
         canvas = GetComponentInChildren<Canvas>();
         if (canvas != null)
@@ -24,7 +29,16 @@ public class PlacementPreset : MonoBehaviour
             canvas.gameObject.SetActive(false);
         }
 
+        // Instancier l'effet visuel à la position du Workshop
+        if (placementFxPrefab != null)
+        {
+            Instantiate(placementFxPrefab, transform.position, Quaternion.identity);
+        }
 
+        if (placementSound != null)
+        {
+            AudioSource.PlayClipAtPoint(placementSound, transform.position);
+        }
     }
 
     public void OpenMarketPlace()
@@ -41,7 +55,6 @@ public class PlacementPreset : MonoBehaviour
     public void ActivateBack()
     {
         Debug.Log("ActivateBack");
-        //GetComponentInChildren<Canvas>().gameObject.SetActive(true);
         canvas.gameObject.SetActive(true);
     }
 }

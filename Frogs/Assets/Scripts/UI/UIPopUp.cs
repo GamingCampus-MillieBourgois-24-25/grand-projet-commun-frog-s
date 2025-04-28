@@ -47,17 +47,20 @@ public class UIPopUp2D : MonoBehaviour
 
     void TryInteract(Vector2 screenPos)
     {
-        // 1) Si on clique sur une UI (overlay ou World Space), on ignore  
+#if UNITY_EDITOR || UNITY_WEBGL
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
+#else
+    if (EventSystem.current != null && Input.touchCount > 0 && EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
+        return;
+#endif
 
-        // 2) Raycast 2D  
+        // Raycast 2D pour détecter clics sur objets en monde
         Ray ray = cam.ScreenPointToRay(screenPos);
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
         if (hit.collider != null)
         {
-            // Si c'est notre objet, on ouvre le pop-up
             if (hit.collider.gameObject == gameObject)
             {
                 targetCanvas.gameObject.SetActive(true);
@@ -65,7 +68,7 @@ public class UIPopUp2D : MonoBehaviour
             }
         }
 
-        // 3) Sinon : on ferme (si c'est déjà ouvert)
+        // Si clic ailleurs fermer le popup
         if (targetCanvas.gameObject.activeSelf)
             targetCanvas.gameObject.SetActive(false);
     }
