@@ -10,6 +10,7 @@ public class PlacementPreset : MonoBehaviour
     private Canvas canvas;
     public GameObject placementFxPrefab;
     public AudioClip placementSound;
+    public int placementID;
 
 
     public void PlaceBuilding(GameObject prefab)

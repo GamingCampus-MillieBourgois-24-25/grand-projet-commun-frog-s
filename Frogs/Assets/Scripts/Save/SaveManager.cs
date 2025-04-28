@@ -18,9 +18,10 @@ public class BuildingData
 {
     public WorkshopType buildingType;
     public Vector3 position;
-
     public FrogColor frogColor;
+    public int placementID;
 }
+
 
 [System.Serializable]
     public struct BuildingEntry
@@ -51,18 +52,28 @@ public class SaveManager : MonoBehaviour
     {
         SaveData data = new SaveData();
         data.gold = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().GetGolds();
-        List<BaseWorkshop> placedWorkshops = FindObjectsByType<BaseWorkshop>(FindObjectsSortMode.None).ToList();
+
+        List<BaseWorkshop> placedWorkshops = new List<BaseWorkshop>(FindObjectsByType<BaseWorkshop>(FindObjectsSortMode.None));
         foreach (BaseWorkshop work in placedWorkshops)
         {
             BuildingData buildingData = new BuildingData();
             buildingData.buildingType = work.workshopType;
             buildingData.position = work.transform.position;
             buildingData.frogColor = work.ColorFrog;
+
+            PlacementPreset placement = work.GetComponentInParent<PlacementPreset>();
+            if (placement != null)
+            {
+                buildingData.placementID = placement.placementID;
+            }
+
             data.buildings.Add(buildingData);
         }
+
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
     }
+
 
     public void LoadGame()
     {
@@ -70,23 +81,52 @@ public class SaveManager : MonoBehaviour
         {
             string json = File.ReadAllText(savePath);
             SaveData data = JsonUtility.FromJson<SaveData>(json);
-            GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().SetGolds(data.gold);
-            foreach(GameObject Zone in ZonesPrefab){
-                foreach(BuildingData buildingData in data.buildings){
-                    if(buildingData.position == Zone.transform.position){
-                        GameObject BuildingToSpawn = GetBuildingByType(buildingData.buildingType);
-                        Debug.Log(BuildingToSpawn.name);
-                        GameObject Workshop = Instantiate(BuildingToSpawn, Zone.transform.position, BuildingToSpawn.transform.rotation);
-                        CorlorManager.ApplyFrogColor(Workshop.GetComponent<BaseWorkshop>(), buildingData.frogColor);
-                        Destroy(Zone);
-                        UIManager.UpgratePrice();
+
+            GameManager gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+            gameManager.SetGolds(data.gold);
+
+            PlacementPreset[] placements = FindObjectsByType<PlacementPreset>(FindObjectsSortMode.None);
+
+            foreach (BuildingData buildingData in data.buildings)
+            {
+                PlacementPreset placement = null;
+
+                foreach (var p in placements)
+                {
+                    if (p.placementID == buildingData.placementID)
+                    {
+                        placement = p;
                         break;
                     }
                 }
+
+                if (placement != null)
+                {
+                    GameObject BuildingToSpawn = GetBuildingByType(buildingData.buildingType);
+                    if (BuildingToSpawn != null)
+                    {
+                        GameObject Workshop = Instantiate(BuildingToSpawn, placement.transform.position, BuildingToSpawn.transform.rotation, placement.transform);
+                        CorlorManager.ApplyFrogColor(Workshop.GetComponent<BaseWorkshop>(), buildingData.frogColor);
+                        UIManager.UpgratePrice();
+
+                        
+                        Canvas placementCanvas = placement.GetComponentInChildren<Canvas>();
+                        if (placementCanvas != null)
+                        {
+                            placementCanvas.gameObject.SetActive(false);
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning($"PlacementPreset avec placementID {buildingData.placementID} non trouvé !");
+                }
             }
         }
+
         FindAnyObjectByType<GameManager>().StartPassiveGeneration();
     }
+
 
     GameObject GetBuildingByType(WorkshopType buildingType)
     {

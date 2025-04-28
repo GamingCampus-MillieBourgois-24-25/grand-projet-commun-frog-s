@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8358370954772019534}
   - component: {fileID: 6395342600235072270}
   - component: {fileID: 2341153521107079708}
+  - component: {fileID: 3605192386761136432}
   m_Layer: 5
   m_Name: BTN_Swap
   m_TagString: Untagged
@@ -115,11 +116,35 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 6395342600235072270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3605192386761136432}
+        m_TargetAssemblyTypeName: SwapButton, Assembly-CSharp
+        m_MethodName: OnSwapButtonClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3605192386761136432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048839367058661389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a78745113375649840290e0a60d7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3521396477599464529
 GameObject:
   m_ObjectHideFlags: 0

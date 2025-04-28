@@ -55,7 +55,6 @@ public class UIPopUp2D : MonoBehaviour
         return;
 #endif
 
-        // Raycast 2D pour détecter clics sur objets en monde
         Ray ray = cam.ScreenPointToRay(screenPos);
         RaycastHit2D hit = Physics2D.GetRayIntersection(ray);
 
@@ -63,13 +62,26 @@ public class UIPopUp2D : MonoBehaviour
         {
             if (hit.collider.gameObject == gameObject)
             {
+                //Si mode Swap est actif
+                if (SwapManager.Instance != null && SwapManager.Instance.IsSwapping())
+                {
+                    PlacementPreset preset = GetComponentInParent<PlacementPreset>();
+                    if (preset != null)
+                    {
+                        SwapManager.Instance.TrySwap(preset);
+                    }
+                    return; // Très important : on NE continue PAS
+                }
+
+                // Comportement normal : ouvrir le popup
                 targetCanvas.gameObject.SetActive(true);
                 return;
             }
         }
 
-        // Si clic ailleurs fermer le popup
+        // Clic ailleurs : fermer le popup
         if (targetCanvas.gameObject.activeSelf)
             targetCanvas.gameObject.SetActive(false);
     }
+
 }

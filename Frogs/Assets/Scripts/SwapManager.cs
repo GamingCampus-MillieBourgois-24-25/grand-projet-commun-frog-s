@@ -1,4 +1,5 @@
 using UnityEngine;
+using Workshop;
 
 public class SwapManager : MonoBehaviour
 {
@@ -37,26 +38,28 @@ public class SwapManager : MonoBehaviour
         if (!isSwapping || firstSelected == null || secondSelected == null || firstSelected == secondSelected)
             return;
 
-        // Sauvegarder les infos du premier
-        Vector3 firstPos = firstSelected.transform.position;
-        Quaternion firstRot = firstSelected.transform.rotation;
-        Transform firstParent = firstSelected.transform.parent;
+        BaseWorkshop firstWorkshop = firstSelected.GetComponentInChildren<BaseWorkshop>();
+        BaseWorkshop secondWorkshop = secondSelected.GetComponentInChildren<BaseWorkshop>();
 
-        // Swap position / rotation / parent
-        firstSelected.transform.position = secondSelected.transform.position;
-        firstSelected.transform.rotation = secondSelected.transform.rotation;
-        firstSelected.transform.parent = secondSelected.transform.parent;
+        if (firstWorkshop != null)
+        {
+            firstWorkshop.transform.SetParent(secondSelected.transform);
+            firstWorkshop.transform.localPosition = Vector3.zero;
+        }
 
-        secondSelected.transform.position = firstPos;
-        secondSelected.transform.rotation = firstRot;
-        secondSelected.transform.parent = firstParent;
+        if (secondWorkshop != null)
+        {
+            secondWorkshop.transform.SetParent(firstSelected.transform);
+            secondWorkshop.transform.localPosition = Vector3.zero;
+        }
 
-        Debug.Log("Bâtiments échangés !");
+        Debug.Log("Swap effectué entre " + firstSelected.name + " et " + secondSelected.name);
 
-        // Fin du swap
         isSwapping = false;
         firstSelected = null;
     }
+
+
 
     public bool IsSwapping()
     {
