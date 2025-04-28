@@ -176,6 +176,12 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6008366823544630795, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
+        type: 3}
+      propertyPath: miniGamePrefab
+      value: 
+      objectReference: {fileID: 2617501987657254388, guid: 844d6525e1e2f004794b419a102cd706,
+        type: 3}
     - target: {fileID: 6946508640944461531, guid: 7b7ae34897fab9b438abb7b9f1e3896c,
         type: 3}
       propertyPath: m_Pivot.x
